@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Room;
 use Illuminate\Http\Request;
+require_once __DIR__ . '../../../../utils/room/formRoomData.php';
+require_once __DIR__ . '../../../../utils/room/getAmenity.php';
 
 class RoomController extends Controller
 {
@@ -12,7 +14,12 @@ class RoomController extends Controller
      */
     public function index()
     {
-        //
+        $rooms = Room::with(['type', 'amenities'])->get();
+        $roomData = formRoomData($rooms);
+
+        return view('rooms-grid', [
+            'rooms' => $roomData
+        ]);
     }
 
     /**
