@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Room;
 use Illuminate\Http\Request;
+require_once __DIR__ . '../../../../utils/room/formRoomData.php';
+require_once __DIR__ . '../../../../utils/room/getAmenity.php';
 
 class OfferController extends Controller
 {
@@ -11,7 +14,13 @@ class OfferController extends Controller
      */
     public function index()
     {
-        //
+        $rooms = Room::with(['type', 'amenities'])->where('offer', true)->orderBy('price', 'asc')->get();
+        $roomData = formRoomData($rooms);
+
+        return view('offers', [
+            'offers' => $roomData,
+            'popular' => $roomData
+        ]);
     }
 
     /**

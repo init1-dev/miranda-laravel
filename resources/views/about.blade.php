@@ -16,7 +16,7 @@
             <div class="banner__breadcrumb">
                 <div class="banner__breadcrumb-inner">
                     <span>
-                        <a href="index.php">Home</a>
+                        <a href={{route('index')}}>Home</a>
                     </span><span>|</span><span>About</span>
                 </div>
             </div>

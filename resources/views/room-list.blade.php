@@ -15,7 +15,7 @@
             <div class="banner__breadcrumb">
                 <div class="banner__breadcrumb-inner">
                     <span>
-                        <a href="index.php">Home</a>
+                        <a href={{route('index')}}>Home</a>
                     </span><span>|</span><span>Rooms</span>
                 </div>
             </div>
@@ -53,7 +53,8 @@
                                         </div>
                                         <a 
                                             style="all:unset;" 
-                                            href="room-details.php?id={{$room['id']}}&check_in={{$arrival}}&check_out={{$departure}}"
+                                            {{-- href={{"room/".$room['id']."?check_in=".$arrival."&check_out=".$departure}} --}}
+                                            href={{route('room', ['room' => $room['id']])."?check_in=".$arrival."&check_out=".$departure}}
                                         >
                                             <button class="rooms__card__info__price--button">Book now</button>
                                         </a>

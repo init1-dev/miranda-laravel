@@ -8,8 +8,8 @@
         </label>
 
         <div class="nav__logo--container">
-            <a class="nav__logo--container--a" href="/">
-                <img class="nav__logo--container--a--img" src="./assets/h.png" alt="logo">
+            <a class="nav__logo--container--a" href={{route('index')}}>
+                <img class="nav__logo--container--a--img" src={{asset("./assets/h.png")}} alt="logo">
                 <div class="nav__logo--container--a--text--container">
                     <h2 class="header__logo--title">HOTEL</h2>
                     <h2 class="header__logo--subtitle">MIRANDA</h2>
@@ -19,22 +19,22 @@
 
         <ul class="header__nav--list">
             <li class="header__nav--item">
-                <a class="header__nav-link" href="about">Abous Us</a>
+                <a class="header__nav-link" href={{route('about')}}>Abous Us</a>
             </li>
             <li class="header__nav--item">
-                <a class="header__nav-link" href="rooms-grid">Rooms</a>
+                <a class="header__nav-link" href={{route('room-grid')}}>Rooms</a>
             </li>
             <li class="header__nav--item">
-                <a class="header__nav-link" href="offers">Offers</a>
+                <a class="header__nav-link" href={{route('offers')}}>Offers</a>
             </li>
             <li class="header__nav--item">
-                <a class="header__nav-link" href="contact">Contact</a>
+                <a class="header__nav-link" href={{route('contact')}}>Contact</a>
             </li>
         </ul>
 
         <ul class="header__nav--icons">
-            <img src="assets/person.svg" alt="">
-            <img src="assets/search.svg" alt="">
+            <img src={{asset("assets/person.svg")}} alt="">
+            <img src={{asset("assets/search.svg")}} alt="">
         </ul>
     </nav>
 </header>

@@ -15,7 +15,7 @@
             <div class="banner__breadcrumb">
                 <div class="banner__breadcrumb-inner">
                     <span>
-                        <a href="index.php">Home</a>
+                        <a href={{route('index')}}>Home</a>
                     </span>
                     <span>|</span>
                     <span>Room Details</span>
@@ -88,7 +88,7 @@
                 @foreach ($room['amenities'] as $amenity)
                     <li class="amenity">
                         {!! getAmenity($amenity) !!}
-                        <p>{{$amenity}}</p>
+                        <p>{{$amenity['name']}}</p>
                     </li>
                 @endforeach
 
@@ -150,7 +150,7 @@
                                     <h2 class="rooms__card__info__price--price">${{ $room['discount'] }}</h2>
                                     <p class="rooms__card__info__price--night">/Night</p>
                                 </div>
-                                <a style="all:unset;" href="room-details.php?id={{$room['id']}}">
+                                <a style="all:unset;" href={{route('room', ['room' => $room['id']])}}>
                                         <button class="rooms__card__info__price--button">Book now</button>
                                 </a>
                             </div>

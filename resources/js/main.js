@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     html: `<h3>Check Out date must be greater than Check In</h3>`
                 });
             } else {
-                window.location.href = `room-list.php?check_in=${checkIn}&check_out=${checkOut}`;
+                window.location.href = `rooms?check_in=${checkIn}&check_out=${checkOut}`;
             }
         })
 

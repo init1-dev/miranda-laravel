@@ -1,7 +1,7 @@
 <footer id="footer" class="footer">
     <section class="footer__section section--logo">
         <div class="footer__logo--container">
-            <img class="img" src="./assets/hfoot.png" alt="logo">
+            <img class="img" src={{asset("./assets/hfoot.png")}} alt="logo">
             <div class="text--container">
                 <h2 class="footer__logo--title">HOTEL</h2>
                 <h2 class="footer__logo--subtitle">MIRANDA</h2>
@@ -47,7 +47,7 @@
         <div class="services--container">
             <ul class="container__list">
                 <li class="list__item">
-                    <img src="./assets/phone.png" alt="phone">
+                    <img src={{asset("./assets/phone.png")}} alt="phone">
                     <div class="text">
                         <p class="title">Phone Number</p>
                         <p class="subtitle">+987 876 765 76 577</p>
@@ -55,7 +55,7 @@
                 </li>
 
                 <li class="list__item">
-                    <img src="./assets/mail.png" alt="mail">
+                    <img src={{asset("./assets/mail.png")}} alt="mail">
                     <div class="text">
                         <p class="title">Email address</p>
                         <p class="subtitle">contacto@hotelmiranda.com</p>
@@ -63,7 +63,7 @@
                 </li>
 
                 <li class="list__item">
-                    <img src="./assets/location.png" alt="location">
+                    <img src={{asset("./assets/location.png")}} alt="location">
                     <div class="text">
                         <p class="title">Location</p>
                         <p class="subtitle">8818 Greenview Ln Greendale</p>

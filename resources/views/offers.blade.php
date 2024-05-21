@@ -14,7 +14,7 @@
         <div class="banner__breadcrumb">
             <div class="banner__breadcrumb-inner">
                 <span>
-                    <a href="index.php">Home</a>
+                    <a href={{route('index')}}>Home</a>
                 </span><span>|</span><span>Offers</span>
             </div>
         </div>
@@ -53,7 +53,7 @@
                             <div class="info__specs--text">
                                 <p class="description limit-2 height-2">{{$room['desc']}}</p>
                                 <div class="main__buttons">
-                                    <a style="all:unset;" href="room-details.php?id={{$room['id']}}">
+                                    <a style="all:unset;" href={{route('room', ['room' => $room['id']])}}>
                                         <button class="color">BOOK NOW</button>
                                     </a>
                                     <button class="dark">GALLERY</button>
@@ -66,7 +66,7 @@
                                     @foreach ($room['amenities'] as $amenity)
                                         <li class="spec">
                                             {!! getAmenity($amenity) !!}
-                                            <p class="spec--text">{{$amenity}}</p>
+                                            <p class="spec--text">{{$amenity['name']}}</p>
                                         </li>
                                     @endforeach
                                     
@@ -110,7 +110,7 @@
                                         <h2 class="rooms__card__info__price--price">${{ $room['price'] }}</h2>
                                         <p class="rooms__card__info__price--night">/Night</p>
                                     </div>
-                                    <a style="all:unset;" href="room-details.php?id={{$room['id']}}">
+                                    <a style="all:unset;" href={{route('room', ['room' => $room['id']])}}>
                                         <button class="rooms__card__info__price--button">Book now</button>
                                     </a>
                                 </div>

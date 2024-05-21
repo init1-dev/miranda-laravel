@@ -4,7 +4,7 @@
         $formatedRooms = [];
         foreach ($roomData as $room) {
             $formatedRooms[] = [
-                'id' => $room['_id'],
+                'id' => $room['id'],
                 'name' => $room['name'],
                 'photo' => $room['photo'],
                 'type' => $room['type']['name'],
