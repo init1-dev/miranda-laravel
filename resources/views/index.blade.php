@@ -99,7 +99,7 @@
             <h2>Hand Picked Rooms</h2>
         </div>
 
-        {{-- <div id="rooms-swiper" class="room-swiper">
+        <div id="rooms-swiper" class="room-swiper">
             <div class="swiper-wrapper">
                 @foreach($rooms as $room)
                     <div class="swiper-slide">
@@ -128,7 +128,7 @@
             </div>
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
-        </div> --}}
+        </div>
 
     </section>
     <section id="luxuryPlace" class="luxuryPlace">
