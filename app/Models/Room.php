@@ -33,4 +33,63 @@ class Room extends Model
     {
         return $this->belongsToMany(Amenity::class, 'room_amenities');
     }
+
+    public function roundPrice()
+    {
+        return round($this->price / 100);
+    }
+
+    public function roundDiscount()
+    {
+        if(!$this->offer)
+        {
+            return round($this->price / 100);
+        }
+        else {
+            return (round($this->price / 100) * ( 1 - $this->discount / 100));
+        };
+    }
+
+    public static function getRooms()
+    {
+        $rooms = self::with(['type', 'amenities'])->get();
+        $formatedRooms = self::formRoomData($rooms);
+        return $formatedRooms;
+    }
+
+    public static function getOffers()
+    {
+        $rooms = Room::with(['type', 'amenities'])->where('offer', true)->orderBy('price', 'asc')->get();
+        $formatedRooms = self::formRoomData($rooms);
+        return $formatedRooms;
+    }
+
+    public static function getPopular()
+    {
+        $rooms = Room::with(['type', 'amenities'])->take(5)->get();
+        $formatedRooms = self::formRoomData($rooms);
+        return $formatedRooms;
+    }
+
+    public static function formRoomData($roomData)
+    {
+        $formatedRooms = [];
+        foreach ($roomData as $room) {
+            $formatedRooms[] = [
+                'id' => $room['id'],
+                'name' => $room['name'],
+                'photo' => $room['photo'],
+                'type' => $room['type']['name'],
+                'number' => $room['room_number'],
+                'desc' => $room['description'],
+                'offer' => $room['offer'],
+                'price' => $room->roundPrice(),
+                'cancel' => $room['cancellation'],
+                'amenities' => json_decode($room['amenities'], true),
+                'discount' => $room->roundDiscount()
+            ];
+        }
+
+        return $formatedRooms;
+    }
 }

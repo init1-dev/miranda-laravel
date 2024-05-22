@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Room;
 use Illuminate\Http\Request;
-require_once __DIR__ . '../../../../utils/room/formRoomData.php';
 require_once __DIR__ . '../../../../utils/room/getAmenity.php';
 
 class RoomController extends Controller
@@ -14,11 +13,10 @@ class RoomController extends Controller
      */
     public function index()
     {
-        $rooms = Room::with(['type', 'amenities'])->get();
-        $roomData = formRoomData($rooms);
+        $roomsData = Room::getRooms();
 
         return view('rooms-grid', [
-            'rooms' => $roomData
+            'rooms' => $roomsData
         ]);
     }
 
@@ -27,8 +25,7 @@ class RoomController extends Controller
      */
     public function listIndex()
     {
-        $rooms = Room::with(['type', 'amenities'])->get();
-        $roomsData = formRoomData($rooms);
+        $roomsData = Room::getRooms();
 
         $arrival = isset($_GET['check_in']) ? $_GET['check_in'] : null;
         $departure = isset($_GET['check_out']) ? $_GET['check_out'] : null;
@@ -66,9 +63,8 @@ class RoomController extends Controller
         $check_in = isset($_GET['check_in']) ? $_GET['check_in'] : null;
         $check_out = isset($_GET['check_out']) ? $_GET['check_out'] : null;
 
-        $rooms = Room::with(['type', 'amenities'])->take(5)->get();
-        $roomData = formRoomData([$room])[0];
-        $related = formRoomData($rooms);
+        $roomData = Room::formRoomData([$room])[0];
+        $related = Room::getPopular();
 
         return view('room-details', [
             'id' => $room['id'],
@@ -101,5 +97,25 @@ class RoomController extends Controller
     public function destroy(Room $room)
     {
         //
+    }
+
+    public function home()
+    {
+        $roomsData = Room::getRooms();
+
+        return view('index', [
+            'rooms' => $roomsData
+        ]);
+    }
+
+    public function offers()
+    {
+        $roomsData = Room::getOffers();
+        $related = Room::getPopular();
+
+        return view('offers', [
+            'offers' => $roomsData,
+            'popular' => $related
+        ]);
     }
 }
