@@ -8,6 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Message extends Model
 {
     use HasFactory;
+
     protected $table = 'message';
-    protected $fillable = [];
+
+    protected $fillable = [
+        'full_name',
+        'phone',
+        'email',
+        'subject',
+        'stars',
+        'message',
+    ];
+
+    public $timestamps = false;
 }

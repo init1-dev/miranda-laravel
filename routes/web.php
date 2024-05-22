@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\RoomController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,3 +21,5 @@ Route::get('/room/{room}', [RoomController::class, 'show'])->name("room");
 Route::get('/rooms', [RoomController::class, 'listIndex'])->name("rooms");
 
 Route::get('/rooms-grid', [RoomController::class, 'index'])->name("room-grid");
+
+Route::post('/contact', [MessageController::class, 'store'])->name("contact-form");

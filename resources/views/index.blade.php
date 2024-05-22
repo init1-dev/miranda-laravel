@@ -1,6 +1,38 @@
 @extends('layout')
 @section('title', 'Hotel Miranda')
 @section('content')
+    <script>
+        @if(session('success'))
+            Swal.fire({
+                icon: 'success',
+                title: '{{ session('success') }}',
+                showConfirmButton: false,
+                timer: 3000
+            });
+        @endif
+
+        @if(session('error'))
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: '{{ session('error') }}',
+                showConfirmButton: true,
+            });
+        @endif
+
+        @if($errors->any())
+            Swal.fire({
+                icon: 'error',
+                title: 'Validation Error',
+                html: '<ul>' +
+                    @foreach ($errors->all() as $error)
+                        '<li>{{ $error }}</li>' +
+                    @endforeach
+                    '</ul>',
+                showConfirmButton: true,
+            });
+        @endif
+    </script>
     <main id="main" class="main">
         <div class="main__container">
             <div class="main__upper">

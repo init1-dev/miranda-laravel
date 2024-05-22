@@ -1,25 +1,5 @@
 let hovered = false;
 
-const ajaxForm = (type, url, data) => {
-    return new Promise((resolve, reject) => {
-        $.ajax({
-            type: type,
-            url: url,
-            data: data,
-            dataType: "json",
-            success: function(response){
-                if(response.success){
-                    resolve("success");
-                }
-            },
-            error: function(xhr, status, _error){
-                console.error(status, xhr.responseJSON.message);
-                reject(xhr.responseJSON.message);
-            }
-        });
-    });
-};
-
 document.addEventListener("DOMContentLoaded", () => {
     const menuToggle = document.getElementById("header__menu-toggle");
     const menu = document.querySelector(".header__nav--list");
@@ -85,63 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 }
             }
-        });
-
-        $(".main-form").on("submit", function( event ) {
-            event.preventDefault();
-            const checkIn = $("#check_in")[0].value;
-            const checkOut = $("#check_out")[0].value;
-            const checkInDate = new Date(checkIn).getTime();
-            const checkOutDate = new Date(checkOut).getTime();
-
-            if( checkOutDate < checkInDate ){
-                toast.fire({
-                    icon: "error",
-                    html: `<h3>Check Out date must be greater than Check In</h3>`
-                });
-            } else {
-                window.location.href = `rooms?check_in=${checkIn}&check_out=${checkOut}`;
-            }
-        })
-
-        $( ".booking-form" ).on( "submit", function( event ) {
-            event.preventDefault();
-            const formData = $(this).serialize();
-
-            ajaxForm(
-                "POST",
-                "../ajax/booking-form.php",
-                formData
-            ).then((_result) => {
-                $("#arrival").css("border-color", "green");
-                $("#departure").css("border-color", "green");
-                window.location.href = "index.php?booking=success";
-            }).catch(error => {
-                $("#arrival").css("border-color", "red");
-                $("#departure").css("border-color", "red");
-                toast.fire({
-                    icon: "error",
-                    html: `<h3>${error}</h3>`
-                });
-            })
-        });
-
-        $( "#contact-form" ).on( "submit", function( event ) {
-            event.preventDefault();
-            const formData = $(this).serialize();
-
-            ajaxForm(
-                "POST", 
-                "../ajax/contact-form.php", 
-                formData
-            ).then(_result => {
-                window.location.href = "index.php?contact=success";
-            }).catch(error => {
-                toast.fire({
-                    icon: "error",
-                    html: `<h3>${error}</h3>`
-                });
-            })
         });
 
     });
