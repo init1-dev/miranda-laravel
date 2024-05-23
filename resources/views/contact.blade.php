@@ -100,7 +100,7 @@
                 <div class="group2">
                     <div class="email">
                         <i class="fa-solid fa-envelope"></i>
-                        <input class="input-text" type="text" name="email" id="email" placeholder="Enter email address" required>
+                        <input class="input-text" type="email" name="email" id="email" placeholder="Enter email address" required>
                     </div>
 
                     <div class="subject">

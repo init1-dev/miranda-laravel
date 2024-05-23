@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\DB;
 
 class Room extends Model
@@ -35,6 +36,11 @@ class Room extends Model
         return $this->belongsToMany(Amenity::class, 'room_amenities');
     }
 
+    public function bookings(): HasMany
+    {
+        return $this->hasMany(Booking::class, 'room_id');
+    }
+
     public function roundPrice()
     {
         return round($this->price / 100);
@@ -58,7 +64,7 @@ class Room extends Model
         return $formatedRooms;
     }
 
-    public static function getAvailableRooms($checkIn = null, $checkOut = null)
+    private static function filterAvailableRooms($checkIn = null, $checkOut = null)
     {
         $query = self::with(['type', 'amenities'])
         ->select('room.*')
@@ -75,28 +81,25 @@ class Room extends Model
                     ->from('booking')
                     ->whereColumn('booking.room_id', 'room.id')
                     ->where(function($query) use ($checkIn, $checkOut) {
-                        $query->where('booking.check_in', '<=', $checkOut)
-                            ->where('booking.check_out', '>=', $checkIn);
+                        $query->where('booking.check_in', '<', $checkOut)
+                            ->where('booking.check_out', '>', $checkIn);
                     });
             });
         }
 
-        $rooms = $query->get();
-        $formatedRooms = self::formRoomData($rooms);
-
-        return $formatedRooms;
+        return $query->get();
     }
 
-    public static function checkRoomAvailability($roomId, $checkIn, $checkOut)
+    public static function getAvailableRooms($checkIn = null, $checkOut = null)
     {
-        return self::where('id', $roomId)
-            ->whereDoesntHave('bookings', function($query) use ($checkIn, $checkOut) {
-                $query->where(function($query) use ($checkIn, $checkOut) {
-                    $query->where('check_in', '<=', $checkOut)
-                        ->where('check_out', '>=', $checkIn);
-                });
-            })
-            ->exists();
+        $filteredRooms = self::filterAvailableRooms($checkIn, $checkOut);
+        return self::formRoomData($filteredRooms);
+    }
+
+    public static function isRoomAvailable($roomId, $checkIn, $checkOut)
+    {
+        $filteredRooms = self::filterAvailableRooms($checkIn, $checkOut);
+        return $filteredRooms->find($roomId) === null ? false : true;
     }
 
     public static function getOffers()

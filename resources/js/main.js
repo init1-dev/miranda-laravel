@@ -72,11 +72,14 @@ document.addEventListener("DOMContentLoaded", () => {
             const checkIn = $("#check_in")[0].value;
             const checkOut = $("#check_out")[0].value;
 
+            const checkInDate = new Date(checkIn).getTime();
             const checkInDay = new Date(checkIn).getDate();
-            const checkOutDay = new Date(checkOut).getDate();
+
+            const checkOutDate = new Date(checkOut).getTime();
+            
             const today = new Date(Date.now()).getDate();
 
-            if( checkOutDay < checkInDay ){
+            if( checkOutDate < checkInDate ){
                 toast.fire({
                     icon: "error",
                     html: `<h3>Departure date must be greater than arrival</h3>`
