@@ -1,6 +1,29 @@
 @extends('layout')
 @section('title', 'Contact us')
 @section('content')
+    <script>
+        @if(session('error'))
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: '{{ session('error') }}',
+                showConfirmButton: true,
+            });
+        @endif
+
+        @if($errors->any())
+            Swal.fire({
+                icon: 'error',
+                title: 'Validation Error',
+                html: '<ul>' +
+                    @foreach ($errors->all() as $error)
+                        '<li>{{ $error }}</li>' +
+                    @endforeach
+                    '</ul>',
+                showConfirmButton: true,
+            });
+        @endif
+    </script>
     <div class="main">
         <div class="main__container">
             <div class="main__upper">
@@ -65,24 +88,24 @@
                 <div class="group1">
                     <div class="name">
                         <i class="fa-solid fa-user"></i>
-                        <input class="input-text" type="text" name="full_name" id="fullname" placeholder="Your full name" required value="Mogambo Sánchez">
+                        <input class="input-text" type="text" name="full_name" id="fullname" placeholder="Your full name" required>
                     </div>
 
                     <div class="number">
                         <i class="fa-solid fa-phone"></i>
-                        <input class="input-text" type="text" name="phone" id="phone" placeholder="Add phone number" required value="650123456">
+                        <input class="input-text" type="text" name="phone" id="phone" placeholder="Add phone number" required>
                     </div>
                 </div>
 
                 <div class="group2">
                     <div class="email">
                         <i class="fa-solid fa-envelope"></i>
-                        <input class="input-text" type="text" name="email" id="email" placeholder="Enter email address" required value="mogamber82@gmail.com">
+                        <input class="input-text" type="text" name="email" id="email" placeholder="Enter email address" required>
                     </div>
 
                     <div class="subject">
                         <i class="fa-solid fa-file-lines"></i>
-                        <input class="input-text" type="text" name="subject" id="subject" placeholder="Enter subject" required value="e que pasa loco">
+                        <input class="input-text" type="text" name="subject" id="subject" placeholder="Enter subject" required>
                     </div>
                 </div>
             </div>
@@ -104,7 +127,7 @@
 
             <div class="message">
                 <i class="fa-solid fa-pencil"></i>
-                <textarea class="text-area" name="message" id="message" cols="30" rows="10" placeholder="Enter message" required>Ta guapo</textarea>
+                <textarea class="text-area" name="message" id="message" cols="30" rows="10" placeholder="Enter message" required></textarea>
             </div>
 
             <button type="submit">SEND</button>

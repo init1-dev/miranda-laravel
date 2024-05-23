@@ -1,6 +1,38 @@
 @extends('layout')
 @section('title', 'Room details')
 @section('content')
+    <script>
+        @if(session('success'))
+            Swal.fire({
+                icon: 'success',
+                title: '{{ session('success') }}',
+                showConfirmButton: false,
+                timer: 3000
+            });
+        @endif
+
+        @if(session('error'))
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: '{{ session('error') }}',
+                showConfirmButton: true,
+            });
+        @endif
+
+        @if($errors->any())
+            Swal.fire({
+                icon: 'error',
+                title: 'Validation Error',
+                html: '<ul>' +
+                    @foreach ($errors->all() as $error)
+                        '<li>{{ $error }}</li>' +
+                    @endforeach
+                    '</ul>',
+                showConfirmButton: true,
+            });
+        @endif
+    </script>
     <section>
         <div class="main">
             <div class="main__container">
@@ -41,39 +73,7 @@
 
             <main class="main">
                 <div class="main__form">
-                    <form id="check-availability-form" class="booking-form" action="../ajax/booking-form.php" method="POST">
-                        <h4>Check Availability</h4>
-                        <div class="input--container">
-                            <label for="arrival" class="input--text">Check In</label>
-                            <input class="input" type="date" name="arrival" id="arrival" value={{$check_in ? $check_in : ''}} required>
-                        </div>
-                        <div class="input--container">
-                            <label for="departure" class="input--text">Check Out</label>
-                            <input class="input" type="date" name="departure" id="departure" value={{$check_out ? $check_out : ''}} required>
-                        </div>
-                        <div class="input--container">
-                            <label for="fullname" class="input--text">Fullname</label>
-                            <input class="input no-bg" type="text" name="fullname" id="fullname" required>
-                        </div>
-                        <div class="input--container">
-                            <label for="phone" class="input--text">Phone</label>
-                            <input class="input no-bg" type="text" name="phone" id="phone" required>
-                        </div>
-                        <div class="input--container">
-                            <label for="email" class="input--text">Email</label>
-                            <input class="input no-bg" type="text" name="email" id="email" required>
-                        </div>
-                        <div class="input--container">
-                            <label for="special-request" class="input--text">Epecial request</label>
-                            <textarea class="input no-bg" name="special-request" id="special-request" required></textarea>
-                        </div>
-                        <input type="number" name="id" id="id" hidden value={{$id}}>
-                        <a>
-                            <button class="submit" type="submit">
-                                {{ $check_in && $check_out ? 'BOOK NOW' : 'CHECK AVAILABILITY' }}
-                            </button>
-                        </a>
-                    </form>
+                    @include('forms.booking-form')
                 </div>
             </main>
         </div>

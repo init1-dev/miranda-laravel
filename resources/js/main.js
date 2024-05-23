@@ -67,5 +67,29 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
+        $(".main-form").on("submit", function( event ) {
+            event.preventDefault();
+            const checkIn = $("#check_in")[0].value;
+            const checkOut = $("#check_out")[0].value;
+
+            const checkInDay = new Date(checkIn).getDate();
+            const checkOutDay = new Date(checkOut).getDate();
+            const today = new Date(Date.now()).getDate();
+
+            if( checkOutDay < checkInDay ){
+                toast.fire({
+                    icon: "error",
+                    html: `<h3>Departure date must be greater than arrival</h3>`
+                });
+            } else if(checkInDay < today ) {
+                toast.fire({
+                    icon: "error",
+                    html: `<h3>You cannot order booking before current day</h3>`
+                });
+            } else {
+                window.location.href = `rooms?check_in=${checkIn}&check_out=${checkOut}`;
+            }
+        })
+
     });
 });

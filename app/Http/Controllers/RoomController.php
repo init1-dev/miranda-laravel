@@ -25,12 +25,10 @@ class RoomController extends Controller
      */
     public function listIndex()
     {
-        $roomsData = Room::getRooms();
+        $arrival = request('check_in');
+        $departure = request('check_out');
 
-        $arrival = isset($_GET['check_in']) ? $_GET['check_in'] : null;
-        $departure = isset($_GET['check_out']) ? $_GET['check_out'] : null;
-
-        // print_r($roomsData[0]);
+        $roomsData = Room::getAvailableRooms($arrival, $departure);
 
         return view('room-list', [
             'rooms' => $roomsData,

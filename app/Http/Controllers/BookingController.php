@@ -28,7 +28,23 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        $request->validate([
+            'check_in' => 'required|date',
+            'check_out' => 'required|date',
+            'full_name' =>  'required|string|max:255',
+            'phone' => 'required|string|max: 20',
+            'email' => 'required|email|max:255',
+            'special_request' => 'string',
+            'room_id' => 'required|numeric'
+        ]);
+
+        try {
+            Booking::create($request->all());
+            return back()->with('success', 'Booking ordered successfully!');
+        } catch (\Throwable $th) {
+            return back()->with('error', 'An error occurred while processing your booking.');
+        }
     }
 
     /**

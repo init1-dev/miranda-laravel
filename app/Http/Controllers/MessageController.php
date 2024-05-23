@@ -38,14 +38,13 @@ class MessageController extends Controller
             'message' => 'required|string',
         ]);
 
-        
         try {
             Message::create($request->all());
             return redirect()->route('index')->with('success', 'Message sent successfully!');
         } catch (QueryException $e) {
-            return redirect()->route('index')->with('error', $e->getMessage());
+            return back()->with('error', $e->getMessage());
         } catch (\Exception $e) {
-            return redirect()->route('index')->with('error', 'An unexpected error occurred: ' . $e->getMessage());
+            return back()->with('error', 'An unexpected error occurred: ' . $e->getMessage());
         }
 
     }

@@ -9,8 +9,20 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Booking extends Model
 {
     use HasFactory;
+
     protected $table = 'booking';
-    protected $fillable = [];
+    
+    protected $fillable = [
+        'check_in',
+        'check_out',
+        'full_name',
+        'phone',
+        'email',
+        'special_request',
+        'room_id'
+    ];
+
+    public $timestamps = false;
 
     public function rooms(): BelongsTo
     {

@@ -10,28 +10,6 @@
                 timer: 3000
             });
         @endif
-
-        @if(session('error'))
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: '{{ session('error') }}',
-                showConfirmButton: true,
-            });
-        @endif
-
-        @if($errors->any())
-            Swal.fire({
-                icon: 'error',
-                title: 'Validation Error',
-                html: '<ul>' +
-                    @foreach ($errors->all() as $error)
-                        '<li>{{ $error }}</li>' +
-                    @endforeach
-                    '</ul>',
-                showConfirmButton: true,
-            });
-        @endif
     </script>
     <main id="main" class="main">
         <div class="main__container">
@@ -56,7 +34,7 @@
         </div>
 
         <div class="main__form">
-            <form id="check-availability-form" class="main-form" action="rooms">
+            <form id="check-availability-form" class="main-form" action="{{ route('rooms') }}">
                 <div class="input--container">
                     <label for="check_in" class="input--text">Arrival Date</p>
                     <input 
