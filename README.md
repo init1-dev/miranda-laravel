@@ -13,5 +13,3 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## TODO
 - offers -> getPopular query get popular rooms instead first 5 in db
-- bookings -> add booking
-- forms -> add booking and contact form
