@@ -2,24 +2,6 @@
 @section('title', 'Room details')
 @section('content')
     <script>
-        @if(session('success'))
-            Swal.fire({
-                icon: 'success',
-                title: '{{ session('success') }}',
-                showConfirmButton: false,
-                timer: 3000
-            });
-        @endif
-
-        @if(session('error'))
-            Swal.fire({
-                icon: 'error',
-                title: 'Error',
-                text: '{{ session('error') }}',
-                showConfirmButton: true,
-            });
-        @endif
-
         @if($errors->any())
             Swal.fire({
                 icon: 'error',

@@ -1,16 +1,6 @@
 @extends('layout')
 @section('title', 'Hotel Miranda')
 @section('content')
-    <script>
-        @if(session('success'))
-            Swal.fire({
-                icon: 'success',
-                title: '{{ session('success') }}',
-                showConfirmButton: false,
-                timer: 3000
-            });
-        @endif
-    </script>
     <main id="main" class="main">
         <div class="main__container">
             <div class="main__upper">
