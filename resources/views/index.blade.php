@@ -107,7 +107,7 @@
                             <div class="slide-title--group">
                                 
                                 @foreach ($room['amenities'] as $amenity)
-                                    {!! getAmenity($amenity) !!}
+                                    <i class="{{ $amenity->getAmenityIcon() }}"></i>
                                 @endforeach
                                 
                             </div>
@@ -115,11 +115,11 @@
                         <img src={{$room['photo']}} alt="Imagen 1">
                         <div class="slide-info">
                             <div class="description">
-                                <h2 class="limit-1">{{ $room['name'] . " " . $room['type'] }}</h2>
-                                <p class="limit-2 height-2">{{$room['desc']}}</p>
+                                <h2 class="limit-1">{{ $room['name'] . " " . $room['type']['name'] }}</h2>
+                                <p class="limit-2 height-2">{{$room['description']}}</p>
                             </div>
                             <div class="price">
-                                <h2>${{ $room['discount'] }}</h2>
+                                <h2>${{ $room->roundDiscount() }}</h2>
                                 <p>/Night</p>
                             </div>
                         </div>

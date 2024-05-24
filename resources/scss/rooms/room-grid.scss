@@ -1,0 +1,173 @@
+.rooms--grid {
+
+    .rooms_grid {
+    
+        @media (min-width: 1000px) {
+            gap: 1rem;
+            grid-template-columns: repeat(1, 1fr);
+        }
+    
+        @media (min-width: 1350px) {
+            gap: 2rem;
+        }
+    
+        .rooms__card {
+    
+            @media (min-width:1000px){
+                width: 950px;
+                margin-left: auto;
+                margin-right: auto;
+                position: relative;
+                display: block;
+                align-items: center;
+                // max-height: 300px;
+                box-shadow: 1px 1px 6px -4px black;
+                border-radius: 0.4rem;
+            }
+
+            @media (min-width:1350px){
+                width: 1200px;
+            }
+    
+            &__icons {
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+
+                @media (min-width:1000px){
+                    background-color: white;
+                    box-shadow: 0px 1px 6px -5px black;
+                    translate: 0 -1.2rem;
+                    width: 90%;
+                }
+
+                @media (min-width:1350px){
+                    // left: 36%;
+                }
+
+                i {
+                    line-height: 24px;
+                }
+            }
+    
+            img {
+
+                @media (min-width:1000px){
+                    height: 250px;
+                }
+            }
+    
+            &__info {
+
+                @media (min-width:1000px){
+                    margin: 0 0 1rem 0 ;
+                    padding-top: 0.5rem;
+                    height: 100%;
+                    display: block;
+                    gap: 2rem;
+                    grid-template-columns: 70% 30%;
+                    text-align: left;
+                    align-items: center;
+                    translate: 2% 0%;
+                }
+    
+                &__description {
+                    text-align: center;
+    
+                    &--title {
+    
+                        @media (min-width: 1000px) {
+                            max-height: 100px;
+                        }
+                    }
+    
+                    &--description {
+    
+                        @media (min-width: 1000px) {
+                            padding: 0 1rem 0 0;
+                            margin-bottom: 1.5rem;
+                        }
+                    }
+                }
+
+                &__price {
+                    margin-top: 1rem;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    width: 100%;
+
+                    div {
+                        display: inline;
+
+                        @media (min-width: 1000px) {
+                            
+                        }
+                    }
+
+                    &--price {
+
+                        @media (min-width: 1000px) {
+                            // margin-bottom: 1.5rem;
+                        }
+                    }
+
+                    &--button {
+                        
+                        @media (min-width: 1000px) {
+                            width: max-content;
+                            padding: unset;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .swiper {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 6rem;
+    }
+
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .swiper-pagination {
+        display: block;
+        margin-bottom: 2rem;
+    }
+
+    .swiper-pagination-bullet {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        text-align: center;
+        margin: auto 0;
+        line-height: 20px;
+        font-size: 20px;
+        color: #000;
+        opacity: 1;
+        background: rgba(0, 0, 0, 0.2);
+    }
+
+    .swiper-pagination-bullet-active {
+        color: #fff;
+        background: #007aff;
+    }
+
+}

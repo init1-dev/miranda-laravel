@@ -12,7 +12,9 @@ use Illuminate\Support\Facades\DB;
 class Room extends Model
 {
     use HasFactory;
+
     protected $table = 'room';
+
     protected $fillable = [
         'name',
         'photo',
@@ -26,26 +28,41 @@ class Room extends Model
         'status'
     ];
 
+    /**
+     * Relation with room RoomType model.
+     */
     public function type(): BelongsTo
     {
         return $this->BelongsTo(RoomType::class, 'room_type_id');
     }
 
+    /**
+     * Relation with Amenity model.
+     */
     public function amenities(): BelongsToMany
     {
         return $this->belongsToMany(Amenity::class, 'room_amenities');
     }
 
+    /**
+     * Relation with Booking model.
+     */
     public function bookings(): HasMany
     {
         return $this->hasMany(Booking::class, 'room_id');
     }
 
+    /**
+     * Returns rounded price.
+     */
     public function roundPrice()
     {
         return round($this->price / 100);
     }
 
+    /**
+     * Returns rounded price or discount if offer is true.
+     */
     public function roundDiscount()
     {
         if(!$this->offer)
@@ -57,23 +74,20 @@ class Room extends Model
         };
     }
 
+    /**
+     * Returns formatted rooms.
+     */
     public static function getRooms()
     {
-        $rooms = self::with(['type', 'amenities'])->get();
-        $formatedRooms = self::formRoomData($rooms);
-        return $formatedRooms;
+        return self::with(['type', 'amenities'])->get();
     }
 
+    /**
+     * Filters and return available rooms from db.
+     */
     private static function filterAvailableRooms($checkIn = null, $checkOut = null)
     {
-        $query = self::with(['type', 'amenities'])
-        ->select('room.*')
-        ->addSelect(['amenities' => function($subquery) {
-            $subquery->selectRaw('JSON_ARRAYAGG(JSON_OBJECT("id", amenity.id, "name", amenity.name))')
-                ->from('room_amenities')
-                ->join('amenity', 'room_amenities.amenity_id', '=', 'amenity.id')
-                ->whereColumn('room_amenities.room_id', 'room.id');
-        }]);
+        $query = self::with(['type', 'amenities'])->select('room.*');
 
         if ($checkIn && $checkOut) {
             $query->whereNotExists(function($subquery) use ($checkIn, $checkOut) {
@@ -90,51 +104,36 @@ class Room extends Model
         return $query->get();
     }
 
+    /**
+     * Returns formatted available rooms.
+     */
     public static function getAvailableRooms($checkIn = null, $checkOut = null)
     {
-        $filteredRooms = self::filterAvailableRooms($checkIn, $checkOut);
-        return self::formRoomData($filteredRooms);
+        return self::filterAvailableRooms($checkIn, $checkOut);
     }
 
+    /**
+     * Returns true if room is available or false.
+     */
     public static function isRoomAvailable($roomId, $checkIn, $checkOut)
     {
         $filteredRooms = self::filterAvailableRooms($checkIn, $checkOut);
         return $filteredRooms->find($roomId) === null ? false : true;
     }
 
+    /**
+     * Returns rooms with offer ordered by price ascending.
+     */
     public static function getOffers()
     {
-        $rooms = Room::with(['type', 'amenities'])->where('offer', true)->orderBy('price', 'asc')->get();
-        $formatedRooms = self::formRoomData($rooms);
-        return $formatedRooms;
+        return Room::with(['type', 'amenities'])->where('offer', true)->orderBy('price', 'asc')->get();;
     }
 
+    /**
+     * Returns popular rooms.
+     */
     public static function getPopular()
     {
-        $rooms = Room::with(['type', 'amenities'])->take(5)->get();
-        $formatedRooms = self::formRoomData($rooms);
-        return $formatedRooms;
-    }
-
-    public static function formRoomData($roomData)
-    {
-        $formatedRooms = [];
-        foreach ($roomData as $room) {
-            $formatedRooms[] = [
-                'id' => $room['id'],
-                'name' => $room['name'],
-                'photo' => $room['photo'],
-                'type' => $room['type']['name'],
-                'number' => $room['room_number'],
-                'desc' => $room['description'],
-                'offer' => $room['offer'],
-                'price' => $room->roundPrice(),
-                'cancel' => $room['cancellation'],
-                'amenities' => json_decode($room['amenities'], true),
-                'discount' => $room->roundDiscount()
-            ];
-        }
-
-        return $formatedRooms;
+        return Room::with(['type', 'amenities'])->take(5)->get();
     }
 }

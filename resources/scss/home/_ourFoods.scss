@@ -1,0 +1,188 @@
+.ourFoods {
+    position: relative;
+    padding-top: 2rem;
+    margin-bottom: 3rem;
+    overflow: hidden;
+    
+    @media (min-width: 1000px) {
+        overflow: visible;
+        margin: 0 12% 5rem 12%;
+    }
+
+    @media (min-width: 1350px) {
+        margin: 0 20% 3rem 20%;
+    }
+
+    .cookie {
+        margin-top: 3rem;
+        position: absolute;
+        height: 100px;
+        top: -48px;
+        left: 79%;
+
+        @media (min-width: 1000px) {
+            height: 229px;
+            top: -200px;
+            left: -250px;
+        }
+
+        @media (min-width: 1350px) {
+            top: -140px;
+            left: -280px;
+        }
+    }
+
+    .swipper-title {
+
+        .menu {
+            font-family: Archivo;
+            font-weight: 700;
+            font-size: 14px;
+            color: #777777;
+            margin-left: 1rem;
+            margin-bottom: 2rem;
+            letter-spacing: 2.8px;
+
+            @media (min-width: 1000px) {
+                margin-left: 0;
+            }
+        }
+
+        .bigText {
+            font-family: $font-standard;
+            font-weight: 400;
+            font-size: 56px;
+            margin-left: 1rem;
+            margin-bottom: 1.5rem;
+            color: $mainBlack;
+
+            @media (min-width: 1000px) {
+                font-size: 80px;
+                margin-left: 0;
+            }
+        }
+    }
+
+    #menu-swipper {
+        margin-top: 4rem;
+        height: 100%;
+
+        @media (min-width: 1000px) {
+            margin-top: 5rem;
+        }
+
+        .swiper-wrapper {
+            padding-bottom: 3rem;
+        }
+
+        .swiper-slide img {
+            height: 120px;
+            width: 120px;
+            object-fit: cover;
+        }
+
+        .menu-swipper--content {
+            margin: 0 20px;
+
+            @media (min-width: 1000px) {
+                margin: 0;
+            }
+
+            .swiper--item {
+                position: relative;
+                display: flex;
+                align-items: center;
+                margin-bottom: 1rem;
+
+                &:hover {
+                    @media (min-width: 1000px) {
+                        padding-right: 5rem;
+                    }
+                }
+
+                &__arrow {
+                    display: none;
+                }
+
+                &:hover > .swiper--item__arrow  {
+
+                    @media (min-width: 1000px) {
+                        display: block;
+                    }
+                }
+
+                &:hover, &:hover div > p {
+                    cursor: pointer;
+                    background-color: $mainBlack;
+                    color: white;
+                }
+
+                .img {
+                    margin-right: 1.2rem;
+                    min-height: 100px;
+                    aspect-ratio: 1/1;
+                }
+
+                .arrow {
+                    position: absolute;
+                    height: 15px;
+                    width: 32px;
+                    top: 3.5rem;
+                    right: 27px;
+                }
+
+                .swipper--title {
+                    font-family: $font-standard;
+                    font-weight: 400;
+                    font-size: 24px;
+                    color: $mainBlack;
+                    margin-bottom: 0.5rem;
+                }
+
+                .swipper--subtitle {
+                    font-family: Roboto;
+                    font-weight: 400;
+                    font-size: 14px;
+                    color: $mainBlack;
+                }
+            }
+        }
+    }
+
+    #images-swipper {
+        width: 100%;
+        margin-top: 2rem;
+        padding-bottom: 3rem;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        @media (min-width: 1000px) {
+            margin-top: 0;
+            padding-bottom: 0;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: calc(100% - 40px);
+            max-width: 100%;
+            height: 200px;
+            object-fit: cover;
+            object-position: center;
+
+            @media (min-width: 1000px) {
+                width: 100%;
+            }
+        }
+    }
+}

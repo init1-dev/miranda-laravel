@@ -2154,6 +2154,9 @@
   font-size: 30px;
   line-height: 32px;
 }
+.offers .rooms_grid .rooms__card--info .info__details .price .offer-price .percent {
+  font-size: 14px;
+}
 .offers .rooms_grid .rooms__card--info .info__details .price .offer-price .night {
   font-size: 12px;
   line-height: 13px;
@@ -3474,7 +3477,7 @@
 }
 .footer::before {
   content: "";
-  background-image: url("../../public/assets/footerbg.png");
+  background-image: url("../assets/footerbg.png");
   background-size: cover;
   background-position: center;
   position: absolute;
@@ -3845,7 +3848,7 @@
   font-weight: 400;
   font-size: 14px;
   color: #969696;
-  background-image: url("../../public/assets/calendar.png");
+  background-image: url("../assets/calendar.png");
   background-position: left;
   background-repeat: no-repeat;
   background-size: 16px;

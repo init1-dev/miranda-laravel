@@ -24,6 +24,9 @@ class Booking extends Model
 
     public $timestamps = false;
 
+    /**
+     * Relation with room model.
+     */
     public function rooms(): BelongsTo
     {
         return $this->belongsTo(Room::class);

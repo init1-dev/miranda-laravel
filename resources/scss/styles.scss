@@ -1,0 +1,218 @@
+$main: #BEAD8E;
+$mainBlack: #222222;
+$mainLightBlack: #333333;
+
+$font-standard: "Old Standard TT", serif;
+$font-archivo: "Archivo", sans-serif;
+$font-roboto: "Roboto", sans-serif;
+
+$color-white: #fff;
+$color-black: #111;
+$color-grey: #777;
+$bg-black: #222;
+$bg-grey: #333;
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+@import './home_module.scss';
+@import './about_module.scss';
+@import './rooms_module.scss';
+@import './offers_module.scss';
+@import './contact/contact.scss';
+
+// COMPONENTS
+@import './components/full-width-rooms-swiper.scss';
+@import './components/rooms-room-card.scss';
+@import './components/core-features-template.scss';
+@import './components/core-features-template-black.scss';
+@import './components/banner-breadcrumb.scss';
+@import './components/header.scss';
+@import './components/footer.scss';
+@import './components/main.scss';
+@import './components/price-booking.scss';
+
+html, * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0; 
+}
+
+body {
+    min-width: 340px;
+
+    .top-fix {
+        
+        .header-bg {
+            top: 0;
+            width: 100%;
+            z-index: 1;
+            position: absolute;
+            height: 74.3px;
+            background-color: #222222;
+        }
+    }
+
+    .p {
+        font-family: Archivo;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 15px;
+        letter-spacing: 2.8px;
+    }
+
+    .desc {
+        font-family: Archivo;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 24px;
+        color: #777777;
+    }
+
+    .main__buttons {
+
+        a {
+            text-decoration: none;
+        }
+
+        @media (min-width: 1000px) {
+            display: flex;
+        }
+
+        button {
+            display: block;
+            font-family: Archivo;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 0.9rem 2.5rem 0.9rem 2.5rem;
+            color: white;
+            margin-top: 1.5rem;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            &.color {
+                background-color: $main;
+                
+                border: 2px solid $main;
+
+                @media (min-width: 1000px) {
+                    margin-right: 1rem;
+                }
+            }
+    
+            &.dark {
+                background-color: $mainLightBlack;
+                border: 2px solid #676767;
+            }
+        }
+
+    }
+
+    .swiper {
+        height: auto !important;
+    }
+
+    .swiper-wrapper {
+        height: auto !important;
+    }
+
+    .swiper-button-next, .swiper-button-prev {
+        margin-top: 2rem;
+        color: black;
+        background-color: #F8F8F8;
+        border: 1px solid grey;
+        width: 36px;
+        height: 36px;
+    
+        &:hover {
+            color: white;
+            background-color: $main;
+        }
+    
+        &::after {
+            font-size: 10px;
+        }
+    }
+    
+    .swiper-button-prev {
+        left: auto;
+        top: unset;
+        bottom: 0px;
+        right: var(--swiper-navigation-sides-offset, 60px);
+        
+        @media (min-width: 1000px) {
+            top: 30px;
+            right: var(--swiper-navigation-sides-offset, 60px);
+        }
+    }
+    
+    .swiper-button-next {
+        top: unset;
+        right: 20px;
+        bottom: 0px;
+    
+        @media (min-width: 1000px) {
+            top: 30px;
+            right: var(--swiper-navigation-sides-offset, 0px);
+        }
+    }
+
+    .swiper-pagination {
+            
+
+        @media (min-width: 1000px) {
+            display: none;
+        }
+    }
+
+    .swiper-pagination-bullet {
+        background-color: $main;
+    }
+}
+
+.limit-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.limit-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.height-2 {
+    line-height: 24px;
+    min-height: calc(24px * 2);
+}
+
+.--max-width {
+    max-width: 74rem;
+
+    @media (min-width: 1000px) {
+        padding-bottom: 5rem;
+    }
+}
+
+.about-separator {
+    overflow: hidden;
+
+    @media (min-width: 1000px) {
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+
+    @media (min-width: 1350px) {
+        padding-left: 2%;
+        padding-right: 0;
+    }
+}
+
+body {
+    user-select: none;
+}

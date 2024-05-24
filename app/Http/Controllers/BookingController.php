@@ -10,28 +10,10 @@ use Illuminate\Http\Request;
 class BookingController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
+     * Store a newly created Booking in storage.
      */
     public function store(Request $request)
     {
-        // dd($request->all());
-
         $id = $request->room_id;
         $check_in = $request->check_in;
         $check_out = $request->check_out;
@@ -64,37 +46,5 @@ class BookingController extends Controller
                 ? back()->with('error', "Sorry, this room is not available between selected dates")
                 : back()->with('error', "Some fields are not fulfilled");
         }
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Booking $booking)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Booking $booking)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Booking $booking)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Booking $booking)
-    {
-        //
     }
 }

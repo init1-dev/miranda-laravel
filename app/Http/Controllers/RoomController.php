@@ -4,10 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Models\Room;
 use Illuminate\Http\Request;
-require_once __DIR__ . '../../../../utils/room/getAmenity.php';
 
 class RoomController extends Controller
 {
+    /**
+     * Display a listing of the resource for index view.
+     */
+    public function home()
+    {
+        $roomsData = Room::getRooms();
+
+        return view('index', [
+            'rooms' => $roomsData
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -21,7 +32,7 @@ class RoomController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource for room list view.
      */
     public function listIndex()
     {
@@ -38,35 +49,18 @@ class RoomController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Display the specified resource.
      */
     public function show(Room $room)
     {
-        $check_in = isset($_GET['check_in']) ? $_GET['check_in'] : null;
-        $check_out = isset($_GET['check_out']) ? $_GET['check_out'] : null;
+        $check_in = request('check_in');
+        $check_out = request('check_out');
 
-        $roomData = Room::formRoomData([$room])[0];
         $related = Room::getPopular();
 
         return view('room-details', [
             'id' => $room['id'],
-            'room' => $roomData,
+            'room' => $room,
             'related' => $related,
             'check_in' => $check_in,
             'check_out' => $check_out
@@ -74,38 +68,8 @@ class RoomController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Display the specified resource for offers view.
      */
-    public function edit(Room $room)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Room $room)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Room $room)
-    {
-        //
-    }
-
-    public function home()
-    {
-        $roomsData = Room::getRooms();
-
-        return view('index', [
-            'rooms' => $roomsData
-        ]);
-    }
-
     public function offers()
     {
         $roomsData = Room::getOffers();

@@ -31,19 +31,19 @@
                                 <div class="rooms__card__icons">
 
                                     @foreach ($room['amenities'] as $amenity)
-                                        {!! getAmenity($amenity) !!}
+                                        <i class="{{ $amenity->getAmenityIcon() }}"></i>
                                     @endforeach
                                     
                                 </div>
 
                                 <div class="rooms__card__info">
                                     <div class="rooms__card__info__description">
-                                        <h2 class="rooms__card__info__description--title limit-1">Room {{$room['number'] . " " . $room['type']}}</h2>
-                                        <p class="rooms__card__info__description--description limit-2 height-2">{{ $room['desc'] }}</p>
+                                        <h2 class="rooms__card__info__description--title limit-1">Room {{$room['room_number'] . " " . $room['type']['name']}}</h2>
+                                        <p class="rooms__card__info__description--description limit-2 height-2">{{ $room['description'] }}</p>
                                     </div>
                                     <div class="rooms__card__info__price">
                                         <div>
-                                            <h2 class="rooms__card__info__price--price">${{ $room['discount'] }}</h2>
+                                            <h2 class="rooms__card__info__price--price">${{ $room->roundDiscount() }}</h2>
                                             <p class="rooms__card__info__price--night">/Night</p>
                                         </div>
                                         <a style="all:unset;" href={{route('room', ['room' => $room['id']])}}>

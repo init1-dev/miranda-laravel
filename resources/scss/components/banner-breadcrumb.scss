@@ -1,0 +1,43 @@
+.banner__breadcrumb {
+    translate: 0% -50%;
+    max-width: 12.5rem;
+    background-color: $color-white;
+    margin-right: 15%;
+    margin-left: auto;
+    padding: 1em 1em;
+
+    @media (min-width: 1000px) {
+        width: 100%;
+    }
+
+    &-inner {
+        text-align: center;
+    }
+
+    &--room-details {
+        width: 100%;
+    }
+
+    span {
+        font-family: $font-archivo;
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 17px;
+        letter-spacing: -0.48px;
+        color: $color-black;
+        cursor: pointer;
+
+        &:nth-child(3) {
+            color: $main;
+        }
+
+        &:not(:last-child) {
+            margin-right: 0.5em;
+        }
+
+        a {
+            text-decoration: none;
+            color: unset;
+        }
+    }
+}

@@ -32,16 +32,19 @@
                     <div class="rooms__card--info">
                         <div class="info__details">
                             <div class="info__details--name">
-                                <h2 class="type">{{strtoupper($room['type'])}}</h2>
+                                <h2 class="type">{{strtoupper($room['type']['name'])}}</h2>
                                 <p class="name">{{$room['name']}}</p>
                             </div>
                             <div class="price">
                                 <div class="regular-price">
-                                    <p class="price">${{ $room['price'] }}</p>
+                                    <p class="price">${{ $room->roundPrice() }}</p>
                                     <p class="night">/Night</p>
                                 </div>
                                 <div class="offer-price">
-                                    <p class="price">${{ $room['discount'] }}</p>
+                                    <p class="price">
+                                        <small class="percent">(-{{ $room['discount'] }}%)</small>
+                                        ${{ $room->roundDiscount() }}
+                                    </p>
                                     <p class="night">/Night</p>
                                 </div>
                             </div>
@@ -51,7 +54,7 @@
 
                         <div class="info__specs">
                             <div class="info__specs--text">
-                                <p class="description limit-2 height-2">{{$room['desc']}}</p>
+                                <p class="description limit-2 height-2">{{$room['description']}}</p>
                                 <div class="main__buttons">
                                     <a style="all:unset;" href={{route('room', ['room' => $room['id']])}}>
                                         <button class="color">BOOK NOW</button>
@@ -65,7 +68,7 @@
 
                                     @foreach ($room['amenities'] as $amenity)
                                         <li class="spec">
-                                            {!! getAmenity($amenity) !!}
+                                            <i class="{{ $amenity->getAmenityIcon() }}"></i>
                                             <p class="spec--text">{{$amenity['name']}}</p>
                                         </li>
                                     @endforeach
@@ -95,19 +98,19 @@
                             <div class="slide-title">
 
                                 @foreach ($room['amenities'] as $amenity)
-                                    {!! getAmenity($amenity) !!}
+                                    <i class="{{ $amenity->getAmenityIcon() }}"></i>
                                 @endforeach
                                 
                             </div>
                             <img src={{ $room['photo'] }} alt={{'room' . $room['id'] . "image"}}>
                             <div class="slide-info">
                                 <div class="description">
-                                    <h2 class="limit-1">{{ $room['name'] . " " . $room['type'] }}</h2>
-                                    <p class="limit-2 height-2">{{ $room['desc'] }}</p>
+                                    <h2 class="limit-1">{{ $room['name'] . " " . $room['type']['name'] }}</h2>
+                                    <p class="limit-2 height-2">{{ $room['description'] }}</p>
                                 </div>
                                 <div class="rooms__card__info__price">
                                     <div>
-                                        <h2 class="rooms__card__info__price--price">${{ $room['price'] }}</h2>
+                                        <h2 class="rooms__card__info__price--price">${{ $room->roundPrice() }}</h2>
                                         <p class="rooms__card__info__price--night">/Night</p>
                                     </div>
                                     <a style="all:unset;" href={{route('room', ['room' => $room['id']])}}>

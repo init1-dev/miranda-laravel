@@ -1,0 +1,6 @@
+#!/bin/bash
+sass --watch ./resources/scss/styles.scss ./resources/css/styles.css
+
+# config:
+#   chmod +x dev
+#   export PATH=$PATH:./
