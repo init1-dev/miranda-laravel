@@ -3477,7 +3477,7 @@
 }
 .footer::before {
   content: "";
-  background-image: url("../assets/footerbg.png");
+  background-image: url("../footerbg.png");
   background-size: cover;
   background-position: center;
   position: absolute;
@@ -4097,35 +4097,101 @@ body {
   user-select: none;
 }
 
-.dashboard__section {
-  margin: 0 5%;
+.dashboard__section .container {
+  margin: 2rem 5% 2rem 5%;
   font-family: "Old Standard TT", serif;
 }
 @media (min-width: 1000px) {
-  .dashboard__section {
-    margin: 0 10%;
+  .dashboard__section .container {
+    margin: 2rem 10% 2rem 10%;
   }
 }
 @media (min-width: 1350px) {
-  .dashboard__section {
-    margin: 0 20%;
+  .dashboard__section .container {
+    margin: 2rem 20% 2rem 20%;
   }
 }
-.dashboard__section .form-control {
-  margin-top: 1rem;
+
+.dashboard__section form {
+  margin: 2rem 5% 5rem 5%;
+  font-family: "Old Standard TT", serif;
 }
-.dashboard__section .form-control--flex {
+@media (min-width: 1000px) {
+  .dashboard__section form {
+    margin: 2rem 10% 5rem 10%;
+  }
+}
+@media (min-width: 1350px) {
+  .dashboard__section form {
+    margin: 2rem 20% 5rem 20%;
+  }
+}
+.dashboard__section form button {
+  display: block;
+  font-family: Archivo;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 0.8rem 2.5rem 0.8rem 2.5rem;
+  color: white;
+  width: 100%;
+}
+@media (min-width: 1000px) {
+  .dashboard__section form button {
+    width: auto;
+  }
+}
+.dashboard__section form button:hover {
+  cursor: pointer;
+}
+.dashboard__section form button.color {
+  background-color: #BEAD8E;
+  border: 2px solid #BEAD8E;
+}
+.dashboard__section form button.color:hover {
+  filter: hue-rotate(45deg);
+}
+.dashboard__section form button.dark {
+  background-color: #333333;
+  border: 2px solid #676767;
+}
+.dashboard__section form ul > li {
+  list-style: none;
+  margin-top: 0.5rem;
+  color: red;
+}
+.dashboard__section form .form-control {
+  margin-top: 1.5rem;
+}
+.dashboard__section form .options {
+  flex-direction: column;
+}
+@media (min-width: 1000px) {
+  .dashboard__section form .options {
+    flex-direction: row;
+  }
+}
+.dashboard__section form .options a {
+  color: blue;
+}
+.dashboard__section form .fc--flex {
+  margin-top: 2rem;
   display: flex;
   justify-content: end;
   align-items: center;
+  gap: 1rem;
 }
-.dashboard__section .flex--col {
+@media (min-width: 1000px) {
+  .dashboard__section form .fc--flex {
+    gap: 2rem;
+  }
+}
+.dashboard__section form .f-col {
   flex-direction: column;
 }
-.dashboard__section .form-control label {
+.dashboard__section form .form-control label, .dashboard__section form .fc--flex label {
   font-weight: 500;
 }
-.dashboard__section .form-control input {
+.dashboard__section form .form-control input {
   margin-top: 0.25rem;
   padding: 0.5rem;
   border: 1px solid black;
@@ -4138,17 +4204,9 @@ body {
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0, 0, 0, 0)), var(--tw-ring-shadow, 0 0 rgba(0, 0, 0, 0)), var(--tw-shadow);
 }
-.dashboard__section .form-control input:focus {
+.dashboard__section form .form-control input:focus {
   border-color: 1px solid #BEAD8E;
   --tw-ring-color: #BEAD8E;
-}
-.dashboard__section .form a {
-  font-family: "Archivo", sans-serif;
-  font-size: 0.9rem;
-  font-weight: 700;
-  line-height: 1rem;
-  letter-spacing: 0rem;
-  margin-right: 0.75rem;
 }
 
 /*# sourceMappingURL=styles.css.map */

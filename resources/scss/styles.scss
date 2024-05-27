@@ -217,33 +217,102 @@ body {
     user-select: none;
 }
 
-.dashboard__section {
-    margin: 0 5%;
+.dashboard__section .container {
+    margin: 2rem 5% 2rem 5%;
     font-family: "Old Standard TT", serif;
 
     @media (min-width: 1000px) {
-        margin: 0 10%;
+        margin: 2rem 10% 2rem 10%;
     }
 
     @media (min-width: 1350px) {
-        margin: 0 20%;
+        margin: 2rem 20% 2rem 20%;
+    }
+}
+
+.dashboard__section form {
+    margin: 2rem 5% 5rem 5%;
+    font-family: "Old Standard TT", serif;
+
+    @media (min-width: 1000px) {
+        margin: 2rem 10% 5rem 10%;
+    }
+
+    @media (min-width: 1350px) {
+        margin: 2rem 20% 5rem 20%;
+    }
+
+    button {
+        display: block;
+        font-family: Archivo;
+        font-weight: 600;
+        font-size: 14px;
+        padding: 0.8rem 2.5rem 0.8rem 2.5rem;
+        color: white;
+        width: 100%;
+
+        @media (min-width: 1000px) {
+            width: auto;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &.color {
+            background-color: $main;
+            border: 2px solid $main;
+            
+            &:hover {
+                filter: hue-rotate(45deg);
+            }
+        }
+
+        &.dark {
+            background-color: $mainLightBlack;
+            border: 2px solid #676767;
+        }
+    }
+
+    ul > li {
+        list-style: none;
+        margin-top: 0.5rem;
+        color: red;
     }
 
     .form-control {
-        margin-top: 1rem;
+        margin-top: 1.5rem;
     }
 
-    .form-control--flex {
+    .options {
+        flex-direction: column;
+
+        @media (min-width: 1000px) {
+            flex-direction: row;
+        }
+
+        a {
+            color: blue;
+        }
+    }
+
+    .fc--flex {
+        margin-top: 2rem;
         display: flex;
         justify-content: end;
         align-items: center;
+        gap: 1rem;
+
+        @media (min-width: 1000px) {
+            gap: 2rem;
+        }
     }
 
-    .flex--col {
+    .f-col {
         flex-direction: column;
     }
 
-    .form-control label {
+    .form-control label, .fc--flex label {
         font-weight: 500;
     }
     
@@ -264,14 +333,5 @@ body {
     .form-control input:focus {
         border-color: 1px solid #BEAD8E;
         --tw-ring-color: #BEAD8E;
-    }
-
-    .form a {
-        font-family: "Archivo", sans-serif;
-        font-size: .9rem;
-        font-weight: 700;
-        line-height: 1rem;
-        letter-spacing: 0rem;
-        margin-right: 0.75rem;
     }
 }

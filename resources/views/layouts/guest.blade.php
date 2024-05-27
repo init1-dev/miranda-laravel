@@ -29,11 +29,11 @@
                 });
             @endif
 
-            @if(session('error'))
+            @if($errors->any())
                 Swal.fire({
                     icon: 'error',
                     title: 'Error',
-                    text: '{{ session('error') }}',
+                    text: "{!! implode('\n', $errors->all()) !!}",
                     showConfirmButton: true,
                 });
             @endif
@@ -42,8 +42,10 @@
         @component('components.header')
         @endcomponent
 
-        @section('content')
-        @show
+        <div class="dashboard__section">
+            @section('content')
+            @show
+        </div>
         
         @component('components.footer')
         @endcomponent
