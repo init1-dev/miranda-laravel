@@ -7,14 +7,14 @@
                 </div>
 
                 <div class="main__middle">
-                    <p class="main__middle--text">Forgot password</p>
+                    <p class="main__middle--text">Dashboard</p>
                 </div>
             </div>
             <div class="banner__breadcrumb">
                 <div class="banner__breadcrumb-inner">
                     <span>
                         <a href={{route('index')}}>Home</a>
-                    </span><span>|</span><span>Forgot</span>
+                    </span><span>|</span><span>Dashboard</span>
                 </div>
             </div>
         </div>

@@ -13,3 +13,6 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## TODO
 - offers -> getPopular query get popular rooms instead first 5 in db
+- fix user delete modal in update view (related to header)
+- navigation options decoration and hover cursor
+- footerbg image in dashboard views

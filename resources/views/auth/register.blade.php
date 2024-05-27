@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <form method="POST" action="{{ route('register') }}">
+        <form class="form-margin" method="POST" action="{{ route('register') }}">
             @csrf
 
             <!-- Name -->

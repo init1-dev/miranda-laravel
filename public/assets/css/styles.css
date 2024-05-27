@@ -4113,18 +4113,7 @@ body {
 }
 
 .dashboard__section form {
-  margin: 2rem 5% 5rem 5%;
   font-family: "Old Standard TT", serif;
-}
-@media (min-width: 1000px) {
-  .dashboard__section form {
-    margin: 2rem 10% 5rem 10%;
-  }
-}
-@media (min-width: 1350px) {
-  .dashboard__section form {
-    margin: 2rem 20% 5rem 20%;
-  }
 }
 .dashboard__section form button {
   display: block;
@@ -4207,6 +4196,20 @@ body {
 .dashboard__section form .form-control input:focus {
   border-color: 1px solid #BEAD8E;
   --tw-ring-color: #BEAD8E;
+}
+
+.form-margin {
+  margin: 2rem 5% 5rem 5%;
+}
+@media (min-width: 1000px) {
+  .form-margin {
+    margin: 2rem 20% 5rem 20%;
+  }
+}
+@media (min-width: 1450px) {
+  .form-margin {
+    margin: 2rem 30% 5rem 30%;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
