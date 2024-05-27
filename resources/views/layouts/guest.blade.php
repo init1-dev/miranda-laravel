@@ -1,14 +1,24 @@
-<html>
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <title>
-            @yield('title')
-        </title>
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
+        {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
+        @yield('title')
         @include('components.links')
         @include('components.scripts')
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+
+        <!-- Scripts -->
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body>
+    
+    <body class="font-sans text-gray-900 antialiased">
         <script>
             @if(session('success'))
                 Swal.fire({
@@ -28,6 +38,7 @@
                 });
             @endif
         </script>
+
         @component('components.header')
         @endcomponent
 

@@ -216,3 +216,62 @@ body {
 body {
     user-select: none;
 }
+
+.dashboard__section {
+    margin: 0 5%;
+    font-family: "Old Standard TT", serif;
+
+    @media (min-width: 1000px) {
+        margin: 0 10%;
+    }
+
+    @media (min-width: 1350px) {
+        margin: 0 20%;
+    }
+
+    .form-control {
+        margin-top: 1rem;
+    }
+
+    .form-control--flex {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+    }
+
+    .flex--col {
+        flex-direction: column;
+    }
+
+    .form-control label {
+        font-weight: 500;
+    }
+    
+    .form-control input {
+        margin-top: 0.25rem;
+        padding: 0.5rem;
+        border: 1px solid black;
+        border-color: rgb(209 213 219);
+        border-radius: 0.5rem;
+        font-family: "Roboto", sans-serif;
+        width: 100%;
+        display: block;
+        --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / .05);
+        --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    }
+
+    .form-control input:focus {
+        border-color: 1px solid #BEAD8E;
+        --tw-ring-color: #BEAD8E;
+    }
+
+    .form a {
+        font-family: "Archivo", sans-serif;
+        font-size: .9rem;
+        font-weight: 700;
+        line-height: 1rem;
+        letter-spacing: 0rem;
+        margin-right: 0.75rem;
+    }
+}
