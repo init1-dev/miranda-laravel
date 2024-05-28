@@ -37,13 +37,11 @@
 
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam architecto tenetur omnis maiores eos adipisci repellat repudiandae dolorum ducimus animi dolor vel optio ipsa perferendis, similique vitae sed! In, expedita!</p>
-                
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam architecto tenetur omnis maiores eos adipisci repellat repudiandae dolorum ducimus animi dolor vel optio ipsa perferendis, similique vitae sed! In, expedita!</p>
-                
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam architecto tenetur omnis maiores eos adipisci repellat repudiandae dolorum ducimus animi dolor vel optio ipsa perferendis, similique vitae sed! In, expedita!</p>
-                
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam architecto tenetur omnis maiores eos adipisci repellat repudiandae dolorum ducimus animi dolor vel optio ipsa perferendis, similique vitae sed! In, expedita!</p>
+                        <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+                            <a href={{route('orders')}}>Go to your orders</a>
+                        </button>
+
+                        <p class="mt-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam architecto tenetur omnis maiores eos adipisci repellat repudiandae dolorum ducimus animi dolor vel optio ipsa perferendis, similique vitae sed! In, expedita!</p>
                     </div>
                 </div>
             </div>

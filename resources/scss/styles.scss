@@ -221,17 +221,17 @@ body {
     background-color: rgb(243 244 246 / 1);
 }
 
-.dashboard__section .container {
-    margin: 2rem 5% 2rem 5%;
+// .dashboard__section .container {
+//     margin: 2rem 5% 2rem 5%;
 
-    @media (min-width: 1000px) {
-        margin: 2rem 10% 2rem 10%;
-    }
+//     @media (min-width: 1000px) {
+//         margin: 2rem 10% 2rem 10%;
+//     }
 
-    @media (min-width: 1350px) {
-        margin: 2rem 20% 2rem 20%;
-    }
-}
+//     @media (min-width: 1350px) {
+//         margin: 2rem 20% 2rem 20%;
+//     }
+// }
 
 .dashboard__section form {
 
@@ -355,4 +355,45 @@ body {
 .bg-index {
     position: relative;
     z-index: 0;
+}
+
+.btn-success, .btn-danger, .btn-warning, .btn-info {
+    padding-top: 0.8rem !important;
+    padding-bottom: 0.8rem !important;
+}
+
+.btn-success {
+    background-color: rgb(20 164 77/1);
+}
+
+.btn-warning {
+    background-color: rgb(228 161 27/1);
+}
+
+.btn-danger {
+    background-color: rgb(220 76 100/1);
+}
+
+.btn-info {
+    color: white;
+    border-radius: .375rem;
+    text-shadow: 1px 1px 5px black;
+    background-color: rgb(84 180 211/1);
+    transition: filter 0.3s ease;
+
+    &:hover {
+        filter: saturate(1.5);
+    }
+}
+
+.flex {
+    display: flex;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
 }

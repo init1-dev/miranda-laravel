@@ -12,7 +12,11 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $ordersData = Order::getOrders();
+
+        return view('orders', [
+            'orders' => $ordersData
+        ]);
     }
 
     /**
