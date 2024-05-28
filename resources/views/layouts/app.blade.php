@@ -7,8 +7,6 @@
 
         {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
         @yield('title')
-        @include('components.links')
-        @include('components.scripts')
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
@@ -16,6 +14,12 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        @component('components.links')
+        @endcomponent
+        
+        @component('components.scripts')
+        @endcomponent
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-index">

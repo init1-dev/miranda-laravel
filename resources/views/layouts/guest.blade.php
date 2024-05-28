@@ -15,8 +15,11 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-        @include('components.links')
-        @include('components.scripts')
+        @component('components.links')
+        @endcomponent
+        
+        @component('components.scripts')
+        @endcomponent
     </head>
     
     <body class="font-sans text-gray-900 antialiased">
