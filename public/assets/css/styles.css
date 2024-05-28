@@ -4133,6 +4133,9 @@ body {
 .dashboard__section form .btn:hover {
   cursor: pointer;
 }
+.dashboard__section form .btn:focus, .dashboard__section form .btn:focus-visible {
+  box-shadow: unset;
+}
 .dashboard__section form .btn.color {
   background-color: #BEAD8E;
   border: 2px solid #BEAD8E;

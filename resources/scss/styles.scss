@@ -255,6 +255,10 @@ body {
             cursor: pointer;
         }
 
+        &:focus, &:focus-visible {
+            box-shadow: unset;
+        }
+
         &.color {
             background-color: $main;
             border: 2px solid $main;
