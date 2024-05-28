@@ -223,7 +223,6 @@ body {
 
 .dashboard__section .container {
     margin: 2rem 5% 2rem 5%;
-    font-family: "Old Standard TT", serif;
 
     @media (min-width: 1000px) {
         margin: 2rem 10% 2rem 10%;
@@ -235,16 +234,18 @@ body {
 }
 
 .dashboard__section form {
-    font-family: "Old Standard TT", serif;
 
-    button {
+    .btn, .btn-op {
         display: block;
         font-family: Archivo;
+        width: 100%;
+    }
+
+    .btn {
         font-weight: 600;
         font-size: 14px;
         padding: 0.8rem 2.5rem 0.8rem 2.5rem;
         color: white;
-        width: 100%;
 
         @media (min-width: 1000px) {
             width: auto;
@@ -331,9 +332,8 @@ body {
     }
 }
 
-.form-margin {
+.form-margin, .form-nomargin {
     margin: 2rem 5% 0 5%;
-    padding-bottom: 5rem;
 
     @media (min-width: 1000px) {
         margin: 2rem 20% 0 20%;
@@ -342,6 +342,10 @@ body {
     @media (min-width: 1450px) {
         margin: 2rem 30% 0 30%;
     }
+}
+
+.form-margin {
+    padding-bottom: 5rem;
 }
 
 .bg-index {

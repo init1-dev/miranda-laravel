@@ -3235,7 +3235,6 @@
   top: 8px;
   left: 12.5%;
   color: white;
-  z-index: 1;
 }
 .header__nav {
   display: flex;
@@ -4103,7 +4102,6 @@ body {
 
 .dashboard__section .container {
   margin: 2rem 5% 2rem 5%;
-  font-family: "Old Standard TT", serif;
 }
 @media (min-width: 1000px) {
   .dashboard__section .container {
@@ -4116,34 +4114,33 @@ body {
   }
 }
 
-.dashboard__section form {
-  font-family: "Old Standard TT", serif;
-}
-.dashboard__section form button {
+.dashboard__section form .btn, .dashboard__section form .btn-op {
   display: block;
   font-family: Archivo;
+  width: 100%;
+}
+.dashboard__section form .btn {
   font-weight: 600;
   font-size: 14px;
   padding: 0.8rem 2.5rem 0.8rem 2.5rem;
   color: white;
-  width: 100%;
 }
 @media (min-width: 1000px) {
-  .dashboard__section form button {
+  .dashboard__section form .btn {
     width: auto;
   }
 }
-.dashboard__section form button:hover {
+.dashboard__section form .btn:hover {
   cursor: pointer;
 }
-.dashboard__section form button.color {
+.dashboard__section form .btn.color {
   background-color: #BEAD8E;
   border: 2px solid #BEAD8E;
 }
-.dashboard__section form button.color:hover {
+.dashboard__section form .btn.color:hover {
   filter: hue-rotate(45deg);
 }
-.dashboard__section form button.dark {
+.dashboard__section form .btn.dark {
   background-color: #333333;
   border: 2px solid #676767;
 }
@@ -4202,19 +4199,22 @@ body {
   --tw-ring-color: #BEAD8E;
 }
 
-.form-margin {
+.form-margin, .form-nomargin {
   margin: 2rem 5% 0 5%;
-  padding-bottom: 5rem;
 }
 @media (min-width: 1000px) {
-  .form-margin {
+  .form-margin, .form-nomargin {
     margin: 2rem 20% 0 20%;
   }
 }
 @media (min-width: 1450px) {
-  .form-margin {
+  .form-margin, .form-nomargin {
     margin: 2rem 30% 0 30%;
   }
+}
+
+.form-margin {
+  padding-bottom: 5rem;
 }
 
 .bg-index {
