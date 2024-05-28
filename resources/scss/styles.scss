@@ -332,14 +332,15 @@ body {
 }
 
 .form-margin {
-    margin: 2rem 5% 5rem 5%;
+    margin: 2rem 5% 0 5%;
+    padding-bottom: 5rem;
 
     @media (min-width: 1000px) {
-        margin: 2rem 20% 5rem 20%;
+        margin: 2rem 20% 0 20%;
     }
 
     @media (min-width: 1450px) {
-        margin: 2rem 30% 5rem 30%;
+        margin: 2rem 30% 0 30%;
     }
 }
 

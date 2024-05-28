@@ -149,6 +149,7 @@
     }
 
     .swiper-pagination-bullet {
+        border-radius: unset;
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -164,7 +165,7 @@
 
     .swiper-pagination-bullet-active {
         color: #fff;
-        background: #007aff;
+        background: #BEAD8E;
     }
 
 }

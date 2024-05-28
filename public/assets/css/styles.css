@@ -1380,6 +1380,7 @@
   margin-bottom: 2rem;
 }
 .rooms--grid .swiper-pagination-bullet {
+  border-radius: unset;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1394,7 +1395,7 @@
 }
 .rooms--grid .swiper-pagination-bullet-active {
   color: #fff;
-  background: #007aff;
+  background: #BEAD8E;
 }
 
 .rooms--list .counter {
@@ -1521,6 +1522,7 @@
   margin-bottom: 2rem;
 }
 .rooms--list .swiper-pagination-bullet {
+  border-radius: unset;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1535,7 +1537,7 @@
 }
 .rooms--list .swiper-pagination-bullet-active {
   color: #fff;
-  background: #007aff;
+  background: #BEAD8E;
 }
 
 .room-details .section-header {
@@ -3847,7 +3849,6 @@
   font-weight: 400;
   font-size: 14px;
   color: #969696;
-  background-image: url("../assets/calendar.png");
   background-position: left;
   background-repeat: no-repeat;
   background-size: 16px;
@@ -4202,16 +4203,17 @@ body {
 }
 
 .form-margin {
-  margin: 2rem 5% 5rem 5%;
+  margin: 2rem 5% 0 5%;
+  padding-bottom: 5rem;
 }
 @media (min-width: 1000px) {
   .form-margin {
-    margin: 2rem 20% 5rem 20%;
+    margin: 2rem 20% 0 20%;
   }
 }
 @media (min-width: 1450px) {
   .form-margin {
-    margin: 2rem 30% 5rem 30%;
+    margin: 2rem 30% 0 30%;
   }
 }
 

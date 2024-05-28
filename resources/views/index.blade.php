@@ -32,6 +32,7 @@
                         type="date" 
                         name="check_in" 
                         id="check_in" 
+                        style="background-image: url({{ asset('assets/calendar.png') }})"
                         required
                     >
                 </div>
@@ -42,6 +43,7 @@
                         type="date" 
                         name="check_out" 
                         id="check_out" 
+                        style="background-image: url({{ asset('assets/calendar.png') }})"
                         required
                     >
                 </div>
