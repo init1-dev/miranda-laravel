@@ -1,4 +1,5 @@
 <footer id="footer" class="footer">
+    <div class="image" style="background-image: url({{asset("assets/footerbg.png")}});"></div>
     <section class="footer__section section--logo">
         <div class="footer__logo--container">
             <img class="img" src={{asset("./assets/hfoot.png")}} alt="logo">

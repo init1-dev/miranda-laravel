@@ -3,9 +3,8 @@
     width: 100%;
     user-select: none;
 
-    &::before {
+    .image {
         content: "";
-        background-image: url('../footerbg.png');
         background-size: cover;
         background-position: center;
         position: absolute;
@@ -14,7 +13,6 @@
         bottom: 0px;
         left: 0px;
         opacity: 0.02;
-        z-index: -1;
     }
 
     @media (min-width: 1000px) {
@@ -31,6 +29,7 @@
     }
 
     &__section {
+        z-index: 1;
         padding: 0 1.5rem;
 
         &:not(:last-child) {

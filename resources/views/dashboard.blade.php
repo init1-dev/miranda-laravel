@@ -35,6 +35,16 @@
                     </div>
                 </div>
             </div>
+
+            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam architecto tenetur omnis maiores eos adipisci repellat repudiandae dolorum ducimus animi dolor vel optio ipsa perferendis, similique vitae sed! In, expedita!</p>
+        
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam architecto tenetur omnis maiores eos adipisci repellat repudiandae dolorum ducimus animi dolor vel optio ipsa perferendis, similique vitae sed! In, expedita!</p>
+        
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam architecto tenetur omnis maiores eos adipisci repellat repudiandae dolorum ducimus animi dolor vel optio ipsa perferendis, similique vitae sed! In, expedita!</p>
+        
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam architecto tenetur omnis maiores eos adipisci repellat repudiandae dolorum ducimus animi dolor vel optio ipsa perferendis, similique vitae sed! In, expedita!</p>
+            </div>
         </div>
     @endsection
 </x-app-layout>
