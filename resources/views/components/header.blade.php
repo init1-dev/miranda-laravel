@@ -32,9 +32,14 @@
             </li>
         </ul>
 
-        <ul class="header__nav--icons">
-            <img src={{asset("assets/person.svg")}} alt="">
-            <img src={{asset("assets/search.svg")}} alt="">
-        </ul>
+        <div class="header__nav--icons">
+            <a class="header-link" href={{ route('dashboard') }}>
+                <img src={{asset("assets/person.svg")}} alt="user dashboard button">
+            </a>
+            
+            {{-- <a class="header-link" href="">
+                <img src={{asset("assets/search.svg")}} alt="">
+            </a> --}}
+        </div>
     </nav>
 </header>

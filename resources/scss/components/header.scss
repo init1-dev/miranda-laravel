@@ -3,7 +3,7 @@
     width: 100%;
     top: 0;
     background-color: white;
-    z-index: 99;
+    z-index: 2;
     padding: 0.5rem;
     transition: transform 0.25s ease-in-out;
     user-select: none;
@@ -23,7 +23,6 @@
         top: 8px;
         left: 12.5%;
         color: white;
-        z-index: 1;
     }
 
     &__nav {
@@ -219,7 +218,7 @@
             }
         }
 
-        .header__nav--icons>img {
+        .header__nav--icons>.header-link {
             height: 20px;
             display: inline-block;
             list-style: none;

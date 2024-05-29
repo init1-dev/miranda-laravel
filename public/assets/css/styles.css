@@ -1380,6 +1380,7 @@
   margin-bottom: 2rem;
 }
 .rooms--grid .swiper-pagination-bullet {
+  border-radius: unset;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1394,7 +1395,7 @@
 }
 .rooms--grid .swiper-pagination-bullet-active {
   color: #fff;
-  background: #007aff;
+  background: #BEAD8E;
 }
 
 .rooms--list .counter {
@@ -1521,6 +1522,7 @@
   margin-bottom: 2rem;
 }
 .rooms--list .swiper-pagination-bullet {
+  border-radius: unset;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1535,7 +1537,7 @@
 }
 .rooms--list .swiper-pagination-bullet-active {
   color: #fff;
-  background: #007aff;
+  background: #BEAD8E;
 }
 
 .room-details .section-header {
@@ -3212,7 +3214,7 @@
   width: 100%;
   top: 0;
   background-color: white;
-  z-index: 99;
+  z-index: 2;
   padding: 0.5rem;
   transition: transform 0.25s ease-in-out;
   user-select: none;
@@ -3233,7 +3235,6 @@
   top: 8px;
   left: 12.5%;
   color: white;
-  z-index: 1;
 }
 .header__nav {
   display: flex;
@@ -3419,17 +3420,17 @@
     width: 35%;
   }
 }
-.header__nav .header__nav--icons > img {
+.header__nav .header__nav--icons > .header-link {
   height: 20px;
   display: inline-block;
   list-style: none;
   cursor: pointer;
 }
-.header__nav .header__nav--icons > img:not(:last-child) {
+.header__nav .header__nav--icons > .header-link:not(:last-child) {
   margin-right: 1.4rem;
 }
 @media (min-width: 1000px) {
-  .header__nav .header__nav--icons > img {
+  .header__nav .header__nav--icons > .header-link {
     height: 40px;
     border: 1px solid lightgrey;
     padding: 0.5rem;
@@ -3475,9 +3476,8 @@
   width: 100%;
   user-select: none;
 }
-.footer::before {
+.footer .image {
   content: "";
-  background-image: url("../assets/footerbg.png");
   background-size: cover;
   background-position: center;
   position: absolute;
@@ -3486,7 +3486,6 @@
   bottom: 0px;
   left: 0px;
   opacity: 0.02;
-  z-index: -1;
 }
 @media (min-width: 1000px) {
   .footer {
@@ -3504,6 +3503,7 @@
   }
 }
 .footer__section {
+  z-index: 1;
   padding: 0 1.5rem;
 }
 @media (min-width: 1000px) {
@@ -3848,7 +3848,6 @@
   font-weight: 400;
   font-size: 14px;
   color: #969696;
-  background-image: url("../assets/calendar.png");
   background-position: left;
   background-repeat: no-repeat;
   background-size: 16px;
@@ -4095,6 +4094,161 @@ body .swiper-pagination-bullet {
 
 body {
   user-select: none;
+}
+
+.dashboard__section {
+  background-color: rgb(243, 244, 246);
+}
+
+.dashboard__section form .btn, .dashboard__section form .btn-op {
+  display: block;
+  font-family: Archivo;
+  width: 100%;
+}
+.dashboard__section form .btn {
+  font-weight: 600;
+  font-size: 14px;
+  padding: 0.8rem 2.5rem 0.8rem 2.5rem;
+  color: white;
+}
+@media (min-width: 1000px) {
+  .dashboard__section form .btn {
+    width: auto;
+  }
+}
+.dashboard__section form .btn:hover {
+  cursor: pointer;
+}
+.dashboard__section form .btn:focus, .dashboard__section form .btn:focus-visible {
+  box-shadow: unset;
+}
+.dashboard__section form .btn.color {
+  background-color: #BEAD8E;
+  border: 2px solid #BEAD8E;
+}
+.dashboard__section form .btn.color:hover {
+  filter: hue-rotate(45deg);
+}
+.dashboard__section form .btn.dark {
+  background-color: #333333;
+  border: 2px solid #676767;
+}
+.dashboard__section form ul > li {
+  list-style: none;
+  margin-top: 0.5rem;
+  color: red;
+}
+.dashboard__section form .form-control {
+  margin-top: 1.5rem;
+}
+.dashboard__section form .options {
+  flex-direction: column;
+}
+@media (min-width: 1000px) {
+  .dashboard__section form .options {
+    flex-direction: row;
+  }
+}
+.dashboard__section form .options a {
+  color: blue;
+}
+.dashboard__section form .fc--flex {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 1rem;
+}
+@media (min-width: 1000px) {
+  .dashboard__section form .fc--flex {
+    gap: 2rem;
+  }
+}
+.dashboard__section form .f-col {
+  flex-direction: column;
+}
+.dashboard__section form .form-control label, .dashboard__section form .fc--flex label {
+  font-weight: 500;
+}
+.dashboard__section form .form-control input {
+  margin-top: 0.25rem;
+  padding: 0.5rem;
+  border: 1px solid black;
+  border-color: rgb(209, 213, 219);
+  border-radius: 0.5rem;
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+  display: block;
+  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / .05);
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0, 0, 0, 0)), var(--tw-ring-shadow, 0 0 rgba(0, 0, 0, 0)), var(--tw-shadow);
+}
+.dashboard__section form .form-control input:focus {
+  border-color: 1px solid #BEAD8E;
+  --tw-ring-color: #BEAD8E;
+}
+
+.form-margin, .form-nomargin {
+  margin: 2rem 5% 0 5%;
+}
+@media (min-width: 1000px) {
+  .form-margin, .form-nomargin {
+    margin: 2rem 20% 0 20%;
+  }
+}
+@media (min-width: 1450px) {
+  .form-margin, .form-nomargin {
+    margin: 2rem 30% 0 30%;
+  }
+}
+
+.form-margin {
+  padding-bottom: 5rem;
+}
+
+.bg-index {
+  position: relative;
+  z-index: 0;
+}
+
+.btn-success, .btn-danger, .btn-warning, .btn-info {
+  padding-top: 0.8rem !important;
+  padding-bottom: 0.8rem !important;
+}
+
+.btn-success {
+  background-color: rgb(20, 164, 77);
+}
+
+.btn-warning {
+  background-color: rgb(228, 161, 27);
+}
+
+.btn-danger {
+  background-color: rgb(220, 76, 100);
+}
+
+.btn-info {
+  color: white;
+  border-radius: 0.375rem;
+  text-shadow: 1px 1px 5px black;
+  background-color: rgb(84, 180, 211);
+  transition: filter 0.3s ease;
+}
+.btn-info:hover {
+  filter: saturate(1.5);
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -30,8 +30,10 @@
         </script>
         @component('components.header')
         @endcomponent
+
         @section('content')
         @show
+        
         @component('components.footer')
         @endcomponent
     </body>
