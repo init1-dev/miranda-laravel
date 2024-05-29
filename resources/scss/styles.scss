@@ -398,7 +398,7 @@ body {
     justify-content: center;
 }
 
-select, textarea, input {
+select.w-full, textarea.w-full, input.w-full {
     border: 1px solid #6b7280 !important;
     border-radius: .375rem !important;
 }
