@@ -397,3 +397,8 @@ body {
 .justify-center {
     justify-content: center;
 }
+
+select, textarea, input {
+    border: 1px solid #6b7280;
+    border-radius: .375rem;
+}
