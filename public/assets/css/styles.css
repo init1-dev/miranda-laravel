@@ -4252,8 +4252,8 @@ body {
 }
 
 select, textarea, input {
-  border: 1px solid #6b7280;
-  border-radius: 0.375rem;
+  border: 1px solid #6b7280 !important;
+  border-radius: 0.375rem !important;
 }
 
 /*# sourceMappingURL=styles.css.map */

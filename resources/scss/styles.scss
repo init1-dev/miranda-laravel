@@ -399,6 +399,6 @@ body {
 }
 
 select, textarea, input {
-    border: 1px solid #6b7280;
-    border-radius: .375rem;
+    border: 1px solid #6b7280 !important;
+    border-radius: .375rem !important;
 }
