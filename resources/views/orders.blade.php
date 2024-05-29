@@ -32,14 +32,16 @@
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6">
                         <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
-                            <a href={{route('dashboard')}}>Go to dashboard</a>
+                            <a href={{route('dashboard')}}>
+                                <i class="fa-solid fa-house"></i>
+                            </a>
                         </button>
 
                         <button
                             class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
                             x-data=""
-                            x-on:click.prevent="$dispatch('open-modal', 'create-order')"
-                        >{{ __('Create new order') }}</button>
+                            x-on:click.prevent="$dispatch('open-modal', { name: 'create-order' })"
+                        >{{ __('NEW ORDER ') }}<i class="fa-solid fa-plus"></i></button>
                     </div>
                     <div class="p-2 lg:p-6 text-gray-900">
                         <table class="mt-6 table-auto container mx-auto">
@@ -60,16 +62,48 @@
                                     <td class="px-4 py-2 text-center">
                                         <button
                                             class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
-                                            x-data=""
-                                            x-on:click.prevent="$dispatch('open-modal', 'update-order')"
+                                            x-data="{ 
+                                                id: {{ $order->id }}, 
+                                                room_id: '{{ $order->room_id }}',
+                                                type: '{{ $order->type }}',
+                                                description: '{{ $order->description }}'
+                                            }"
+                                            x-on:click.prevent="$dispatch(
+                                                'open-modal',
+                                                {
+                                                    name: 'update-order',
+                                                    data: {
+                                                        id: id,
+                                                        room_id: room_id,
+                                                        type: type,
+                                                        description: description
+                                                    }
+                                                }
+                                            )"
                                         >
                                             <i class="fa-solid fa-pen-to-square"></i>
                                         </button>
 
                                         <button
                                             class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
-                                            x-data=""
-                                            x-on:click.prevent="$dispatch('open-modal', 'delete-order')"
+                                            x-data="{ 
+                                                id: {{ $order->id }}, 
+                                                room_id: '{{ $order->room_id }}',
+                                                type: '{{ $order->type }}',
+                                                description: '{{ $order->description }}'
+                                            }"
+                                            x-on:click.prevent="$dispatch(
+                                                'open-modal',
+                                                {
+                                                    name: 'delete-order',
+                                                    data: {
+                                                        id: id,
+                                                        room_id: room_id,
+                                                        type: type,
+                                                        description: description
+                                                    }
+                                                }
+                                            )"
                                         >
                                             <i class="fa-solid fa-trash"></i>
                                         </button>

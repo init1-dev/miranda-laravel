@@ -37,7 +37,7 @@
                     Swal.fire({
                         icon: 'error',
                         title: 'Error',
-                        text: "{!! implode('\n', $errors->all()) !!}",
+                        html: "<p>{!! implode('\n', $errors->all()) !!}</p>",
                         showConfirmButton: true,
                     });
                 @endif

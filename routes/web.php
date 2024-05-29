@@ -34,6 +34,9 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/orders', [OrderController::class, 'index'])->name('orders');
+Route::post('/orders', [OrderController::class, 'store'])->name('order.store');
+Route::patch('/orders', [OrderController::class, 'update'])->name('order.update');
+Route::delete('/orders', [OrderController::class, 'destroy'])->name('order.destroy');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

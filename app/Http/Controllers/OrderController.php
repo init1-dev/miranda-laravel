@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Room;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -12,10 +15,16 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $ordersData = Order::getOrders();
+        $ordersData = Order::getOrders()->where('user_id', Auth::id());
+        $rooms = Room::getRooms();
+        $orderTypes = [
+            "Food", "Drink", "Services"
+        ];
 
         return view('orders', [
-            'orders' => $ordersData
+            'orders' => $ordersData,
+            'rooms' => $rooms,
+            'types' => $orderTypes
         ]);
     }
 
@@ -32,7 +41,21 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'room_id' => 'required|numeric',
+            'type' => 'required|string|max:255',
+            'description' => 'required|string',
+            'user_id' => 'required|numeric'
+        ]);
+        
+        try {
+            Order::create($request->all());
+            return redirect()->route('orders')->with('success', 'Order created successfully!');
+        } catch (QueryException $e) {
+            return back()->with('error', $e->getMessage());
+        } catch (\Exception $e) {
+            return back()->with('error', 'An unexpected error occurred: ' . $e->getMessage());
+        }
     }
 
     /**
@@ -54,16 +77,41 @@ class OrderController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Order $order)
+    public function update(Request $request)
     {
-        //
+        $request->validate([
+            'type' => 'required|string|max:255',
+            'description' => 'required|string'
+        ]);
+
+        try {
+            $order = Order::find($request->id);
+            $order->type = $request->type;
+            $order->description = $request->description;
+            $order->update();
+
+            return redirect()->route('orders')->with('success', 'Order updated successfully!');
+        } catch (QueryException $e) {
+            return back()->with('error', $e->getMessage());
+        } catch (\Exception $e) {
+            return back()->with('error', 'An unexpected error occurred: ' . $e->getMessage());
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Order $order)
+    public function destroy(Request $request)
     {
-        //
+        try {
+            $order_data = json_decode($request->order_data);
+            $order = Order::find($order_data->id);
+            $order->delete();
+            return redirect()->route('orders')->with('success', 'Order deleted successfully!');
+        } catch (QueryException $e) {
+            return back()->with('error', $e->getMessage());
+        } catch (\Exception $e) {
+            return back()->with('error', 'An unexpected error occurred: ' . $e->getMessage());
+        }
     }
 }
