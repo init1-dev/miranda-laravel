@@ -96,9 +96,9 @@
                     cursor: pointer;
                     margin-left: 1rem;
         
-                    .text--container h2 {
+                    .h2 {
                         font-family: Archivo;
-                        font-size: 26px;
+                        font-size: 26px !important;
                         color: #111111;
             
                         @media (min-width: 1000px) {
@@ -211,7 +211,7 @@
                 .container__list {
 
                     .list__item {
-                        display: block;
+                        display: flex;
 
                         img, div {
                             display: inline-block;

@@ -4,8 +4,8 @@
         <div class="footer__logo--container">
             <img class="img" src={{asset("./assets/hfoot.png")}} alt="logo">
             <div class="text--container">
-                <h2 class="footer__logo--title">HOTEL</h2>
-                <h2 class="footer__logo--subtitle">MIRANDA</h2>
+                <h2 class="h2 footer__logo--title">HOTEL</h2>
+                <h2 class="h2 footer__logo--subtitle">MIRANDA</h2>
             </div>
         </div>
 

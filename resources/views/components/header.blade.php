@@ -11,8 +11,8 @@
             <a class="nav__logo--container--a" href={{route('index')}}>
                 <img class="nav__logo--container--a--img" src={{asset("./assets/h.png")}} alt="logo">
                 <div class="nav__logo--container--a--text--container">
-                    <h2 class="header__logo--title">HOTEL</h2>
-                    <h2 class="header__logo--subtitle">MIRANDA</h2>
+                    <h2 class="h2 header__logo--title">HOTEL</h2>
+                    <h2 class="h2 header__logo--subtitle">MIRANDA</h2>
                 </div>
             </a>
         </div>
