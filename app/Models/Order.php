@@ -27,7 +27,7 @@ class Order extends Model
 
     public static function getOrdersByUser()
     {
-        return self::all()->where('user_id', Auth::id());
+        return self::with(['room'])->where('user_id', Auth::id())->get();
     }
 
     public static function getTypes()
@@ -40,7 +40,7 @@ class Order extends Model
         return $this->BelongsTo(User::class);
     }
 
-    public function rooms(): BelongsTo
+    public function room(): BelongsTo
     {
         return $this->BelongsTo(Room::class);
     }

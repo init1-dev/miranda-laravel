@@ -18,7 +18,6 @@ class OrderController extends Controller
         $ordersData = Order::getOrdersByUser();
         $rooms = Room::getRooms();
         $orderTypes = Order::getTypes();
-
         return view('orders', [
             'orders' => $ordersData,
             'rooms' => $rooms,

@@ -56,7 +56,7 @@
                             <tbody>
                                 @foreach($orders as $order)
                                 <tr>
-                                    <td class="px-4 py-2 text-center">{{ $order->room_id }}</td>
+                                    <td class="px-4 py-2 text-center">{{ $order->room->room_number }}</td>
                                     <td class="px-4 py-2 text-center">{{ $order->type }}</td>
                                     <td class="px-4 py-2 text-center">{{ $order->description }}</td>
                                     <td class="px-4 py-2 text-center">
