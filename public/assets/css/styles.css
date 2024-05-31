@@ -1275,6 +1275,9 @@
     gap: 2rem;
   }
 }
+.rooms--grid .rooms_grid .rooms__card {
+  width: 100%;
+}
 @media (min-width: 1000px) {
   .rooms--grid .rooms_grid .rooms__card {
     width: 950px;
@@ -1414,6 +1417,9 @@
   .rooms--list .rooms_grid {
     gap: 2rem;
   }
+}
+.rooms--list .rooms_grid .rooms__card {
+  width: 100%;
 }
 @media (min-width: 1000px) {
   .rooms--list .rooms_grid .rooms__card {
@@ -2061,6 +2067,7 @@
   }
 }
 .offers .rooms_grid .rooms__card {
+  width: 100%;
   margin-top: 1rem;
 }
 @media (min-width: 1000px) {

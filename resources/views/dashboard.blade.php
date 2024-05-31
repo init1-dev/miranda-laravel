@@ -37,9 +37,14 @@
 
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6 text-gray-900">
-                        <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
-                            <a href={{route('orders')}}>Go to your orders</a>
-                        </button>
+                        <a href={{route('orders')}}>
+                            <button 
+                                class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+                            >
+                                <i class="fa-regular fa-bell"></i>
+                                Your orders
+                            </button>
+                        </a>
 
                         <p class="mt-6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam architecto tenetur omnis maiores eos adipisci repellat repudiandae dolorum ducimus animi dolor vel optio ipsa perferendis, similique vitae sed! In, expedita!</p>
                     </div>

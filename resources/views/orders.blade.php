@@ -31,11 +31,13 @@
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div class="p-6">
-                        <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
-                            <a href={{route('dashboard')}}>
+                        <a href={{route('dashboard')}}>
+                            <button 
+                                class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+                            >
                                 <i class="fa-solid fa-house"></i>
-                            </a>
-                        </button>
+                            </button>
+                        </a>
 
                         <button
                             class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"

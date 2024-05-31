@@ -37,7 +37,6 @@ Miranda Hotel web using HTML/CSS/JS with Laravel(Docker), Eloquent and MYSQL
 ## Next Updates
 
 ### TODO:
-- check dashboard buttons
 - offers -> getPopular query get popular rooms instead first 5 in db
 
 ## Project Urls
