@@ -15,11 +15,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $ordersData = Order::getOrders()->where('user_id', Auth::id());
+        $ordersData = Order::getOrdersByUser();
         $rooms = Room::getRooms();
-        $orderTypes = [
-            "Food", "Drink", "Services"
-        ];
+        $orderTypes = Order::getTypes();
 
         return view('orders', [
             'orders' => $ordersData,
@@ -45,11 +43,10 @@ class OrderController extends Controller
             'room_id' => 'required|numeric',
             'type' => 'required|string|max:255',
             'description' => 'required|string',
-            'user_id' => 'required|numeric'
         ]);
         
         try {
-            Order::create($request->all());
+            Order::create(['user_id' => Auth::id(), ...$request->all()]);
             return redirect()->route('orders')->with('success', 'Order created successfully!');
         } catch (QueryException $e) {
             return back()->with('error', $e->getMessage());
@@ -88,7 +85,7 @@ class OrderController extends Controller
             $order = Order::find($request->id);
             $order->type = $request->type;
             $order->description = $request->description;
-            $order->update();
+            $order->save();
 
             return redirect()->route('orders')->with('success', 'Order updated successfully!');
         } catch (QueryException $e) {
