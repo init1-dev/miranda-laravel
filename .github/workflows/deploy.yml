@@ -1,0 +1,23 @@
+name: Despliegue Miranda Laravel
+
+on:
+  push:
+    branches:
+    - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Executing remote ssh commands
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          port: ${{ secrets.PORT }}
+          key: ${{ secrets.KEY }}
+          script: |
+            cd /var/www/miranda-laravel
+            git pull origin main
+            php artisan migrate
+            npm run build
+            sudo systemctl restart apache2
